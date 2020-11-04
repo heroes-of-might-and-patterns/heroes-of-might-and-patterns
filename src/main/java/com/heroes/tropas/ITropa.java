@@ -1,4 +1,4 @@
-package tropas;
+package com.heroes.tropas;
 
 public interface ITropa {
 }
