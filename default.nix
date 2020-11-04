@@ -6,6 +6,6 @@ mkShell {
   buildInputs = [
     spring-boot
     maven
-    jdk
+    jdk11
   ];
 }
