@@ -22,4 +22,11 @@ public abstract class AGema {
     }
 
     public abstract AGema clone();
+
+    @Override
+    public String toString() {
+        return "AGema:" +
+                "color='" + color + '\'' +
+                ", oro=" + oro;
+    }
 }

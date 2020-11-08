@@ -3,7 +3,7 @@ package com.heroes.casillas.gemas;
 public class GemaAzul extends AGema{
 
     private static final int oro = 2;
-    private static final String color = "0000ff";
+    private static final String color = "Azul";
 
     public GemaAzul() {
         this.setColor(this.color);
