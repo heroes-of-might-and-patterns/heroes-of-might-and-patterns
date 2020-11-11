@@ -40,5 +40,10 @@ public class GestorGemas {
         }
     }
 
+    public AGema getRandomGema(){
+        int random = (int)(Math.random() * (3 - 1 + 1) + 1);
+        return this.crearGema(random);
+    }
+
 
 }
