@@ -1,6 +1,6 @@
 package com.heroes.defensas;
 
-public class Catapulta {
+public class Catapulta implements IDefensa{
 
     private int precio;
     private int vida;
@@ -57,5 +57,15 @@ public class Catapulta {
                 ", atkPuntos=" + atkPuntos +
                 ", atkAlcance=" + atkAlcance +
                 '}';
+    }
+
+    @Override
+    public void atacar() {
+        //METODO DE ATACAR
+    }
+
+    @Override
+    public void defender(int ataque) {
+        //METODO DE DEFENDER
     }
 }
