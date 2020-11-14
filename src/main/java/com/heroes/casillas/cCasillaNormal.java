@@ -2,7 +2,7 @@ package com.heroes.casillas;
 
 import com.heroes.castillo.Castillo;
 
-public class cCasillaNormal extends aCasilla{
+public class cCasillaNormal {
 	private Castillo castillo;
 
 	public cCasillaNormal(){}

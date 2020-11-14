@@ -1,17 +1,17 @@
 package com.heroes.casillas.gestores;
 
-import com.heroes.casillas.aCasilla;
 import com.heroes.casillas.aDecoradorCasilla;
+import com.heroes.casillas.cCasillaNormal;
 import com.heroes.casillas.decoradores.cCasillaPowerUpAtaque;
 import com.heroes.casillas.decoradores.cCasillaPowerUpDefensa;
 import com.heroes.casillas.decoradores.cCasillaTrampaAtaque;
 import com.heroes.casillas.decoradores.cCasillaTrampaDefensa;
 
 public class cGestorCasillas {
-	private aCasilla[][] casillas = new aCasilla[10][10];
+	private cCasillaNormal[][] casillas = new cCasillaNormal[10][10];
 
 	public void decorarCasilla(int x, int y, String tipo){
-		aCasilla casilla = this.casillas[x][y];
+		cCasillaNormal casilla = this.casillas[x][y];
 		switch (tipo){
 			case "downDef":
 				decorarCasilla(x,y,new cCasillaTrampaDefensa(casilla));
@@ -28,7 +28,7 @@ public class cGestorCasillas {
 		}
 	}
 	
-	public void decorarCasilla(int x, int y, aDecoradorCasilla decorado){
+	public void decorarCasilla(int x, int y, cCasillaNormal decorado){
 		this.casillas[x][y] = decorado;
 	}
 

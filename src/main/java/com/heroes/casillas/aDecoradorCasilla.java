@@ -1,13 +1,13 @@
 package com.heroes.casillas;
 
-public abstract class aDecoradorCasilla extends aCasilla {
-	protected aCasilla casilla;
+public abstract class aDecoradorCasilla extends cCasillaNormal {
+	protected cCasillaNormal casilla;
 
 	public aDecoradorCasilla() {
 		this.casilla = new cCasillaNormal();
 	}
 	
-	public aCasilla getCasilla() {
+	public cCasillaNormal getCasilla() {
 		return casilla;
 	}
 
