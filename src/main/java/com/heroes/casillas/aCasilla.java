@@ -2,10 +2,10 @@ package com.heroes.casillas;
 
 import com.heroes.castillo.Castillo;
 
-public class cCasillaNormal extends aCasilla{
+public abstract class aCasilla {
 	private Castillo castillo;
 
-	public cCasillaNormal(){}
+	public aCasilla(){}
 
 	public Castillo getCastillo() {
 		return castillo;
@@ -19,7 +19,5 @@ public class cCasillaNormal extends aCasilla{
 		return this.castillo == null;
 	}
 
-	public boolean pisada() {
-		return false;
-	}
+	public abstract boolean pisada();
 }
