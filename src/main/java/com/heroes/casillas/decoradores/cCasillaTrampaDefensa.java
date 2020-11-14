@@ -4,9 +4,10 @@ import com.heroes.casillas.aDecoradorCasilla;
 
 public class cCasillaTrampaDefensa extends aDecoradorCasilla {
 	@Override
-	public void pisada() {
+	public boolean pisada() {
 		if(!casilla.estaVacia()) {
 			// Reducir defensa
 		}
+		return false;
 	}
 }

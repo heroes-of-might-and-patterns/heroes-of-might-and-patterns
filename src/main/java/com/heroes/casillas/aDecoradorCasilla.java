@@ -7,5 +7,5 @@ public abstract class aDecoradorCasilla {
 		this.casilla = new cCasillaNormal();
 	}
 
-	public abstract void pisada();
+	public abstract boolean pisada();
 }

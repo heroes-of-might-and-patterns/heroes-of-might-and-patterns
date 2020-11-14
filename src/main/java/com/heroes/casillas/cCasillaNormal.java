@@ -18,4 +18,8 @@ public class cCasillaNormal {
 	public boolean estaVacia(){
 		return this.castillo == null;
 	}
+
+	public boolean pisada() {
+		return false;
+	}
 }

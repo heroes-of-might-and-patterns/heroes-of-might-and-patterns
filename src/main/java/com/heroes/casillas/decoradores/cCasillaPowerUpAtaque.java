@@ -4,9 +4,10 @@ import com.heroes.casillas.aDecoradorCasilla;
 
 public class cCasillaPowerUpAtaque extends aDecoradorCasilla {
 	@Override
-	public void pisada() {
+	public boolean pisada() {
 		if(!casilla.estaVacia()) {
 			// Aumentar ataque
 		}
+		return true;
 	}
 }
