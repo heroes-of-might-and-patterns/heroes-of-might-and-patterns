@@ -1,7 +1,7 @@
 package com.heroes.castillo;
 
 public class Castillo {
-	private int oro = 20, vida = 10;
+	private int oro = 20, vida = 30;
 
 	public Castillo(){
 
