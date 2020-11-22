@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DadoComponent implements OnInit {
 
-  private valor;
+  valor: number;
 
   constructor() {}
 
@@ -21,7 +21,6 @@ export class DadoComponent implements OnInit {
     let dado = document.getElementById('IconDice');
     let random = Math.round(Math.random() * (6 - 1) + 1);
     this.valor =  random > 6 ? 6 : random;
-    console.log( (this.valor) );
 
     switch (this.valor){
       case 1: {

@@ -1,6 +1,8 @@
-<div class="example-button-container">
-  <button mat-fab color="warn" (click)="click()">
-
+<div id="dado">
+  <div class="alert alert-warning dadoBtn" role="alert">
+    {{valor == null ? 0: valor}}
+  </div>
+  <button class="dadoBtn" mat-fab color="warn" (click)="click()">
     <i id="IconDice" class="fas fa-dice fa-2x"></i>
   </button>
 </div>
