@@ -81,7 +81,11 @@ public class Bersequer implements ITropa {
     }
 
     public void setOroTransportado(int oroTransportado) {
-        this.oroTransportado = oroTransportado;
+        if(oroTransportado > 6){
+            this.oroTransportado = 6;
+        }else {
+            this.oroTransportado = oroTransportado;
+        }
     }
 
     public String getNombre() {

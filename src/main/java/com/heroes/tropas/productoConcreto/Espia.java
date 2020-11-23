@@ -81,7 +81,11 @@ public class Espia implements ITropa {
     }
 
     public void setOroTransportado(int oroTransportado) {
-        this.oroTransportado = oroTransportado;
+        if(oroTransportado > 10 ){
+            this.oroTransportado = 10;
+        }else {
+            this.oroTransportado = oroTransportado;
+        }
     }
 
     public String getNombre() {

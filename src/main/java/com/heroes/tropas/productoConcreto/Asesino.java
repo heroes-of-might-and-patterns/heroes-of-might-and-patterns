@@ -82,7 +82,12 @@ public class Asesino implements ITropa {
     }
 
     public void setOroTransportado(int oroTransportado) {
-        this.oroTransportado = oroTransportado;
+        if(oroTransportado > 2){
+            this.oroTransportado = 2;
+        }else {
+            this.oroTransportado = oroTransportado;
+        }
+
     }
 
     public String getNombre() {
