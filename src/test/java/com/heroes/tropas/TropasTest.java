@@ -1,13 +1,10 @@
 package com.heroes.tropas;
 
-import com.heroes.casillas.cCasillaNormal;
-import com.heroes.tropas.productoAbstracto.ITropa;
+
 import com.heroes.tropas.productoConcreto.*;
-import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TropasTest {
 
@@ -37,26 +34,26 @@ public class TropasTest {
         asesino.setOroTransportado(3);
 
         arquero.atacarTropa(asesino);
-        Assert.assertEquals(0 , asesino.getDefensa());
+        assertEquals(0 , asesino.getDefensa());
 
         arquero.atacarTropa(asesino);
         arquero.atacarTropa(asesino);
         arquero.atacarTropa(asesino);
         arquero.atacarTropa(asesino);
 
-        Assert.assertEquals(0 , asesino.getVida());
-        Assert.assertEquals(2 , arquero.getOroTransportado());
+        assertEquals(0 , asesino.getVida());
+        assertEquals(2 , arquero.getOroTransportado());
 
         asesino.atacarTropa(arquero);
-        Assert.assertEquals(0 , arquero.getDefensa());
+        assertEquals(0 , arquero.getDefensa());
 
         asesino.atacarTropa(arquero);
         asesino.atacarTropa(arquero);
         asesino.atacarTropa(arquero);
         asesino.atacarTropa(arquero);
 
-        Assert.assertEquals(0 , arquero.getVida());
-        Assert.assertEquals(2 , asesino.getOroTransportado());
+        assertEquals(0 , arquero.getVida());
+        assertEquals(2 , asesino.getOroTransportado());
 
     }
 
@@ -66,22 +63,22 @@ public class TropasTest {
         espadachin.setOroTransportado(2);
 
         bersequer.atacarTropa(espadachin);
-        Assert.assertEquals(0 , espadachin.getDefensa());
-        Assert.assertEquals(5 , espadachin.getVida());
+        assertEquals(0 , espadachin.getDefensa());
+        assertEquals(5 , espadachin.getVida());
 
         bersequer.atacarTropa(espadachin);
-        Assert.assertEquals(2 , bersequer.getOroTransportado());
+        assertEquals(2 , bersequer.getOroTransportado());
 
         espadachin.atacarTropa(bersequer);
-        Assert.assertEquals(4 , bersequer.getDefensa());
+        assertEquals(4 , bersequer.getDefensa());
 
         espadachin.atacarTropa(bersequer);
-        Assert.assertEquals(13 , bersequer.getVida());
+        assertEquals(13 , bersequer.getVida());
 
         espadachin.atacarTropa(bersequer);
         espadachin.atacarTropa(bersequer);
         espadachin.atacarTropa(bersequer);
-        Assert.assertEquals(2 , espadachin.getOroTransportado());
+        assertEquals(2 , espadachin.getOroTransportado());
     }
 
     @Test
@@ -90,21 +87,21 @@ public class TropasTest {
         mago.setOroTransportado(3);
 
         jinete.atacarTropa(mago);
-        Assert.assertEquals(0, mago.getDefensa());
-        Assert.assertEquals(9, mago.getVida());
+        assertEquals(0, mago.getDefensa());
+        assertEquals(9, mago.getVida());
 
         jinete.atacarTropa(mago);
         jinete.atacarTropa(mago);
         jinete.atacarTropa(mago);
-        Assert.assertEquals(2, jinete.getOroTransportado());
+        assertEquals(2, jinete.getOroTransportado());
 
         mago.atacarTropa(jinete);
-        Assert.assertEquals(0, jinete.getDefensa());
-        Assert.assertEquals(8, jinete.getVida());
+        assertEquals(0, jinete.getDefensa());
+        assertEquals(8, jinete.getVida());
 
         mago.atacarTropa(jinete);
         mago.atacarTropa(jinete);
-        Assert.assertEquals(2, mago.getOroTransportado());
+        assertEquals(2, mago.getOroTransportado());
     }
 
     @Test
@@ -112,14 +109,14 @@ public class TropasTest {
 
         espia.setOroTransportado(10);
         arquero.atacarTropa(espia);
-        Assert.assertEquals(0, espia.getDefensa());
-        Assert.assertEquals(0, espia.getVida());
-        Assert.assertEquals(2, arquero.getOroTransportado());
+        assertEquals(0, espia.getDefensa());
+        assertEquals(0, espia.getVida());
+        assertEquals(2, arquero.getOroTransportado());
 
         arquero.setDefensa(0);
         arquero.setVida(1);
         espia.atacarTropa(arquero);
-        Assert.assertEquals(0, arquero.getVida());
-        Assert.assertEquals(2, espia.getOroTransportado());
+        assertEquals(0, arquero.getVida());
+        assertEquals(2, espia.getOroTransportado());
     }
 }
