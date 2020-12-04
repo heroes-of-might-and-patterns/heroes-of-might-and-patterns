@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+
 import { MatGridListModule } from '@angular/material/grid-list';
 import { FormsModule } from '@angular/forms';
 
@@ -19,7 +20,7 @@ import { TropasJugadorComponent } from './tropas-jugador/tropas-jugador.componen
     DadoComponent,
     TableroComponent,
     FooterComponent,
-    TropasJugadorComponent,
+    TropasJugadorComponent,   
   ],
   imports: [
     BrowserModule,
@@ -28,7 +29,6 @@ import { TropasJugadorComponent } from './tropas-jugador/tropas-jugador.componen
     MatIconModule,
     MatGridListModule,
     FormsModule
-
   ],
   providers: [],
   bootstrap: [AppComponent]
