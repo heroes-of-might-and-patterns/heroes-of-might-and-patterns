@@ -13,6 +13,16 @@ public class Espia implements ITropa {
     private int oroTransportado;
     private String nombre;
 
+    public Espia() {
+        this.nombre = "Espia";
+        this.precio = 5;
+        this.vida = 2;
+        this.cantMoviminetos = 5;
+        this.defensa = 1;
+        this.ptsAtaque = 1;
+        this.ptsAlcance = 3;
+        this.oroTransportado = 0;
+    }
 
     public int getPrecio() {
         return precio;
@@ -27,7 +37,11 @@ public class Espia implements ITropa {
     }
 
     public void setVida(int vida) {
-        this.vida = vida;
+        if(vida < 0){
+            this.vida = 0;
+        }else {
+            this.vida = vida;
+        }
     }
 
     public int getCantMoviminetos() {
@@ -67,7 +81,11 @@ public class Espia implements ITropa {
     }
 
     public void setOroTransportado(int oroTransportado) {
-        this.oroTransportado = oroTransportado;
+        if(oroTransportado > 10 ){
+            this.oroTransportado = 10;
+        }else {
+            this.oroTransportado = oroTransportado;
+        }
     }
 
     public String getNombre() {
@@ -79,8 +97,11 @@ public class Espia implements ITropa {
     }
 
     @Override
-    public ITropa atacar(ITropa objetivo) {
-        objetivo.defender(this.getPtsAtaque());
+    public ITropa atacarTropa(ITropa objetivo) {
+
+        if( objetivo.defender(this.getPtsAtaque()) ){
+            this.robarOro( objetivo.pasarOro() );
+        }
         return objetivo;
     }
 
@@ -91,19 +112,29 @@ public class Espia implements ITropa {
 
     @Override
     public void robarOro(int oro) {
-        if(oro <= 10 && oro > 0){
+        if(oro > 10 && oro > 0){
+            this.setOroTransportado(10);
+        }else{
             this.setOroTransportado(oro);
         }
     }
 
     @Override
-    public void defender(int ataque) {
+    public boolean defender(int ataque) {
 
-        if(this.getDefensa() < ataque){
+        if(this.getDefensa() > ataque){
             this.setDefensa( this.defensa - ataque );
+            return false;
         }else {
-            this.setVida( ataque - this.getDefensa() );
+            ataque = ataque - this.getDefensa();
             this.setDefensa(0);
+            this.setVida( this.getVida() - ataque );
+            return this.getVida() == 0 ? true : false;
         }
+    }
+
+    @Override
+    public int pasarOro() {
+        return this.getOroTransportado();
     }
 }
