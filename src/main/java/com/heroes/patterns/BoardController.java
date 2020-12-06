@@ -6,7 +6,11 @@ import com.heroes.casillas.decoradores.cCasillaPowerUpAtaque;
 import com.heroes.casillas.decoradores.cCasillaPowerUpDefensa;
 import com.heroes.casillas.decoradores.cCasillaTrampaAtaque;
 import com.heroes.casillas.decoradores.cCasillaTrampaDefensa;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
+@Controller
+@RequestMapping("/board")
 public class BoardController {
 	private final cCasillaNormal[] casillas = new cCasillaNormal[100];
 
