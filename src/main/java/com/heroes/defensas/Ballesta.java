@@ -7,14 +7,13 @@ public class Ballesta implements IDefensa{
     private int atkPuntos;
     private int atkAlcance;
 
-    public Ballesta() {
-    }
 
-    public Ballesta(int precio, int vida, int atkPuntos, int atkAlcance) {
-        this.precio = precio;
-        this.vida = vida;
-        this.atkPuntos = atkPuntos;
-        this.atkAlcance = atkAlcance;
+
+    public Ballesta() {
+        this.precio = 5;
+        this.vida = 3;
+        this.atkPuntos = 2;
+        this.atkAlcance = 2;
     }
 
     public int getPrecio() {
@@ -60,7 +59,7 @@ public class Ballesta implements IDefensa{
     }
 
     @Override
-    public void atacar() {
+    public void atacar(int ataque) {
         //METODO DE ATACAR
     }
 

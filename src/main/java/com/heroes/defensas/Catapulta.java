@@ -7,14 +7,12 @@ public class Catapulta implements IDefensa{
     private int atkPuntos;
     private int atkAlcance;
 
-    public Catapulta() {
-    }
 
-    public Catapulta(int precio, int vida, int atkPuntos, int atkAlcance) {
-        this.precio = precio;
-        this.vida = vida;
-        this.atkPuntos = atkPuntos;
-        this.atkAlcance = atkAlcance;
+    public Catapulta() {
+        this.precio = 8;
+        this.vida = 3;
+        this.atkPuntos = 5;
+        this.atkAlcance = 2;
     }
 
     public int getPrecio() {
@@ -60,12 +58,13 @@ public class Catapulta implements IDefensa{
     }
 
     @Override
-    public void atacar() {
+    public void atacar(int ataque) {
         //METODO DE ATACAR
     }
 
     @Override
     public void defender(int ataque) {
         //METODO DE DEFENDER
+        //LE BAJO LA VIDA A LA DEFENSA
     }
 }
