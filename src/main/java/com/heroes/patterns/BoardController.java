@@ -1,4 +1,4 @@
-package com.heroes.casillas.gestores;
+package com.heroes.patterns;
 
 import com.heroes.casillas.aDecoradorCasilla;
 import com.heroes.casillas.cCasillaNormal;
@@ -7,7 +7,7 @@ import com.heroes.casillas.decoradores.cCasillaPowerUpDefensa;
 import com.heroes.casillas.decoradores.cCasillaTrampaAtaque;
 import com.heroes.casillas.decoradores.cCasillaTrampaDefensa;
 
-public class cGestorCasillas {
+public class BoardController {
 	private final cCasillaNormal[] casillas = new cCasillaNormal[100];
 
 	public void decorarCasilla(int x, String tipo) {
