@@ -7,22 +7,22 @@ import java.util.ArrayList;
 
 public class GestorDefensa {
 
-    IFabricaDefensa fabrica;
-    private static ArrayList<IDefensa> conjuntoDefensas = new ArrayList<IDefensa>();
+	private static final ArrayList<IDefensa> conjuntoDefensas = new ArrayList<IDefensa>();
+	IFabricaDefensa fabrica;
 
 
-    public GestorDefensa() {
-    }
+	public GestorDefensa() {
+	}
 
-    public static void crearDefensa(IFabricaDefensa fabrica){
+	public static void crearDefensa(IFabricaDefensa fabrica) {
 
-        IDefensa defensa = fabrica.crearDefensa();
-        agregarDefensa(defensa);
+		IDefensa defensa = fabrica.crearDefensa();
+		agregarDefensa(defensa);
 
-    }
+	}
 
-    private static void agregarDefensa(IDefensa defensa){
-            conjuntoDefensas.add(defensa);
-    }
+	private static void agregarDefensa(IDefensa defensa) {
+		conjuntoDefensas.add(defensa);
+	}
 
 }

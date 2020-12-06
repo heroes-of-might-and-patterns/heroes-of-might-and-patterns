@@ -5,10 +5,10 @@ import com.heroes.tropas.productoAbstracto.ITropa;
 import com.heroes.tropas.productoConcreto.Jinete;
 
 public class FabricaJinete implements IFabricaTropa {
-    @Override
-    public ITropa crearTropa() {
-        Jinete jinete = new Jinete();
+	@Override
+	public ITropa crearTropa() {
+		Jinete jinete = new Jinete();
 
-        return jinete;
-    }
+		return jinete;
+	}
 }

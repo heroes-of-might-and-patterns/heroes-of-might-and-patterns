@@ -5,7 +5,8 @@ import com.heroes.castillo.Castillo;
 public class cCasillaNormal {
 	private Castillo castillo;
 
-	public cCasillaNormal(){}
+	public cCasillaNormal() {
+	}
 
 	public Castillo getCastillo() {
 		return castillo;
@@ -15,7 +16,7 @@ public class cCasillaNormal {
 		this.castillo = castillo;
 	}
 
-	public boolean estaVacia(){
+	public boolean estaVacia() {
 		return this.castillo == null;
 	}
 

@@ -6,10 +6,10 @@ import com.heroes.tropas.productoConcreto.Arquero;
 
 public class FabricaArquero implements IFabricaTropa {
 
-    @Override
-    public ITropa crearTropa() {
-        Arquero arquero = new Arquero();
+	@Override
+	public ITropa crearTropa() {
+		Arquero arquero = new Arquero();
 
-        return arquero;
-    }
+		return arquero;
+	}
 }

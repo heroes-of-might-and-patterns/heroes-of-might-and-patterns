@@ -6,10 +6,10 @@ import com.heroes.tropas.productoConcreto.Espia;
 
 public class FabricaEspia implements IFabricaTropa {
 
-    @Override
-    public ITropa crearTropa() {
-        Espia espia = new Espia();
+	@Override
+	public ITropa crearTropa() {
+		Espia espia = new Espia();
 
-        return espia;
-    }
+		return espia;
+	}
 }
