@@ -3,10 +3,11 @@ package com.heroes.castillo;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class CastilloTest {
 	private Castillo castillo;
+
 	@BeforeEach
 	void setUp() {
 		castillo = new Castillo();
@@ -29,7 +30,7 @@ class CastilloTest {
 
 	@Test
 	void reducirVidaConValorMayor() {
-		castillo.reducirVida(castillo.getVida()+40);
+		castillo.reducirVida(castillo.getVida() + 40);
 		assertEquals(castillo.getVida(), 0);
 	}
 
@@ -50,7 +51,7 @@ class CastilloTest {
 
 	@Test
 	void reducirOroConValorMayor() {
-		castillo.reducirOro(castillo.getOro()+40);
+		castillo.reducirOro(castillo.getOro() + 40);
 		assertEquals(castillo.getOro(), 0);
 	}
 }
