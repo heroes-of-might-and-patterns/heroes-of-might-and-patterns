@@ -65,6 +65,6 @@ public class Ballesta implements IDefensa{
 
     @Override
     public void defender(int ataque) {
-        //METODO DE DEFENDER
+        
     }
 }
