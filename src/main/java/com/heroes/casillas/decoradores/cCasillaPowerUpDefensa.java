@@ -10,7 +10,7 @@ public class cCasillaPowerUpDefensa extends aDecoradorCasilla {
 
 	@Override
 	public boolean pisada() {
-		if(!casilla.estaVacia()) {
+		if (!casilla.estaVacia()) {
 			// Aumentar defensa
 		}
 		return true;

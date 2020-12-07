@@ -6,11 +6,11 @@ import com.heroes.tropas.productoConcreto.Espadachin;
 
 public class FabriaEspadachin implements IFabricaTropa {
 
-    @Override
-    public ITropa crearTropa() {
-        Espadachin espadachin = new Espadachin();
+	@Override
+	public ITropa crearTropa() {
+		Espadachin espadachin = new Espadachin();
 
-        return espadachin;
-    }
+		return espadachin;
+	}
 
 }
