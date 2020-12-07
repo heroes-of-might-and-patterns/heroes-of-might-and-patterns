@@ -4,105 +4,141 @@ import com.heroes.tropas.productoAbstracto.ITropa;
 
 public class Asesino implements ITropa {
 
-	private int precio;
-	private int vida;
-	private int cantMoviminetos;
-	private int defensa;
-	private int ptsAtaque;
-	private int ptsAlcance;
-	private int oroTransportado;
-	private String nombre;
+    private String nombre;
+    private int precio;
+    private int vida;
+    private int cantMoviminetos;
+    private int defensa;
+    private int ptsAtaque;
+    private int ptsAlcance;
+    private int oroTransportado;
 
-	public int getPrecio() {
-		return precio;
-	}
+    public Asesino() {
+        this.nombre = "Asesino";
+        this.precio = 5;
+        this.vida = 10;
+        this.cantMoviminetos = 4;
+        this.defensa = 3;
+        this.ptsAtaque = 3;
+        this.ptsAlcance = 2;
+        this.oroTransportado = 0;
+    }
 
-	public void setPrecio(int precio) {
-		this.precio = precio;
-	}
+    public int getPrecio() {
+        return precio;
+    }
 
-	public int getVida() {
-		return vida;
-	}
+    public void setPrecio(int precio) {
+        this.precio = precio;
+    }
 
-	public void setVida(int vida) {
-		this.vida = vida;
-	}
+    public int getVida() {
+        return vida;
+    }
 
-	public int getCantMoviminetos() {
-		return cantMoviminetos;
-	}
+    public void setVida(int vida) {
+        if(vida < 0){
+            this.vida = 0;
+        }else {
+            this.vida = vida;
+        }
 
-	public void setCantMoviminetos(int cantMoviminetos) {
-		this.cantMoviminetos = cantMoviminetos;
-	}
+    }
 
-	public int getDefensa() {
-		return defensa;
-	}
+    public int getCantMoviminetos() {
+        return cantMoviminetos;
+    }
 
-	public void setDefensa(int defensa) {
-		this.defensa = defensa;
-	}
+    public void setCantMoviminetos(int cantMoviminetos) {
+        this.cantMoviminetos = cantMoviminetos;
+    }
 
-	public int getPtsAtaque() {
-		return ptsAtaque;
-	}
+    public int getDefensa() {
+        return defensa;
+    }
 
-	public void setPtsAtaque(int ptsAtaque) {
-		this.ptsAtaque = ptsAtaque;
-	}
+    public void setDefensa(int defensa) {
+        this.defensa = defensa;
+    }
 
-	public int getPtsAlcance() {
-		return ptsAlcance;
-	}
+    public int getPtsAtaque() {
+        return ptsAtaque;
+    }
 
-	public void setPtsAlcance(int ptsAlcance) {
-		this.ptsAlcance = ptsAlcance;
-	}
+    public void setPtsAtaque(int ptsAtaque) {
+        this.ptsAtaque = ptsAtaque;
+    }
 
-	public int getOroTransportado() {
-		return oroTransportado;
-	}
+    public int getPtsAlcance() {
+        return ptsAlcance;
+    }
 
-	public void setOroTransportado(int oroTransportado) {
-		this.oroTransportado = oroTransportado;
-	}
+    public void setPtsAlcance(int ptsAlcance) {
+        this.ptsAlcance = ptsAlcance;
+    }
 
-	public String getNombre() {
-		return nombre;
-	}
+    public int getOroTransportado() {
+        return oroTransportado;
+    }
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
+    public void setOroTransportado(int oroTransportado) {
+        if(oroTransportado > 2){
+            this.oroTransportado = 2;
+        }else {
+            this.oroTransportado = oroTransportado;
+        }
 
-	@Override
-	public ITropa atacar(ITropa objetivo) {
-		objetivo.defender(this.getPtsAtaque());
-		return objetivo;
-	}
+    }
 
-	@Override
-	public void moverse(int cordX, int cordY) {
+    public String getNombre() {
+        return nombre;
+    }
 
-	}
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
-	@Override
-	public void robarOro(int oro) {
-		if (oro <= 2 && oro > 0) {
-			this.setOroTransportado(oro);
-		}
-	}
 
-	@Override
-	public void defender(int ataque) {
+    @Override
+    public ITropa atacarTropa(ITropa objetivo) {
 
-		if (this.getDefensa() < ataque) {
-			this.setDefensa(this.defensa - ataque);
-		} else {
-			this.setVida(ataque - this.getDefensa());
-			this.setDefensa(0);
-		}
-	}
+        if( objetivo.defender(this.getPtsAtaque()) ){
+            this.robarOro( objetivo.pasarOro() );
+        }
+
+        return objetivo;
+    }
+
+    @Override
+    public void moverse(int cordX, int cordY) {
+
+    }
+
+    @Override
+    public void robarOro(int oro) {
+        if(oro > 2 && oro > 0){
+            this.setOroTransportado(2);
+        }else {
+            this.setOroTransportado(oro);
+        }
+    }
+
+    @Override
+    public boolean defender(int ataque) {
+
+        if(this.getDefensa() > ataque){
+            this.setDefensa( this.defensa - ataque );
+            return false;
+        }else {
+            ataque = ataque - this.getDefensa();
+            this.setDefensa(0);
+            this.setVida( this.getVida() - ataque );
+            return this.getVida() == 0 ? true : false;
+        }
+    }
+
+    @Override
+    public int pasarOro() {
+        return this.getOroTransportado();
+    }
 }
