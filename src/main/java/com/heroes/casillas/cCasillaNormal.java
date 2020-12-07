@@ -1,11 +1,21 @@
 package com.heroes.casillas;
 
 import com.heroes.castillo.Castillo;
+import com.heroes.tropas.productoAbstracto.ITropa;
 
 public class cCasillaNormal {
 	private Castillo castillo;
+	private ITropa tropa;
 
 	public cCasillaNormal() {
+	}
+
+	public ITropa getTropa() {
+		return tropa;
+	}
+
+	public void setTropa(ITropa tropa) {
+		this.tropa = tropa;
 	}
 
 	public Castillo getCastillo() {
