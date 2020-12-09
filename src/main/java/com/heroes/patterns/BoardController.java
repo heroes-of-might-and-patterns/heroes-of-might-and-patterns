@@ -12,10 +12,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.ArrayList;
 
-@Controller
-@RequestMapping("/board")
+//@Controller
+//@RequestMapping("/board")
 public class BoardController {
-	private final cCasillaNormal[] casillas = new cCasillaNormal[100];
+
+	//Se implemento en GestorTablero
+	/*private final cCasillaNormal[] casillas = new cCasillaNormal[100];
 
 	@RequestMapping(value = "/iniciarTablero", method = RequestMethod.POST)
 	public void iniciarTablero() {
@@ -62,5 +64,5 @@ public class BoardController {
 		if (casillas[x].pisada()) {
 			quitarDecorador(x);
 		}
-	}
+	}*/
 }

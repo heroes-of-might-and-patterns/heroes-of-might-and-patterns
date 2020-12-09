@@ -13,6 +13,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TableroComponent } from './tablero/tablero.component';
 import { FooterComponent } from './footer/footer.component';
 import { TropasJugadorComponent } from './tropas-jugador/tropas-jugador.component';
+import { TableroService } from './services/tablero.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,9 +30,12 @@ import { TropasJugadorComponent } from './tropas-jugador/tropas-jugador.componen
     MatButtonModule,
     MatIconModule,
     MatGridListModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    TableroService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
