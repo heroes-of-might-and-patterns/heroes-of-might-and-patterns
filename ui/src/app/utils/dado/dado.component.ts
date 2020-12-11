@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ComunicacionService } from 'src/app/services/comunicacion.service';
 
 
 @Component({
@@ -10,10 +11,14 @@ export class DadoComponent implements OnInit {
 
   valor: number;
 
-  constructor() {}
+  constructor(private comunicacionService: ComunicacionService) {}
 
 
   ngOnInit(): void {
+    
+    this.comunicacionService.notificarDadoObservable.subscribe(res => {
+      this.valor = res; 
+    })
   }
 
 
@@ -49,5 +54,7 @@ export class DadoComponent implements OnInit {
       }
 
     }
+
+    this.comunicacionService.notificarDado(this.valor);
   }
 }

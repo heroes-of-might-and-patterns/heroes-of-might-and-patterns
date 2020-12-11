@@ -6,4 +6,7 @@ public interface ITropa {
     public void robarOro(int oro);
     public boolean defender(int ataque);
     public int pasarOro();
+    public String getNombre();
+    public char getEstado();
+    public String getIdJugador();
 }

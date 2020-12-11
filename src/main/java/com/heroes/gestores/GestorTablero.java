@@ -6,12 +6,14 @@ import com.heroes.casillas.decoradores.cCasillaPowerUpAtaque;
 import com.heroes.casillas.decoradores.cCasillaPowerUpDefensa;
 import com.heroes.casillas.decoradores.cCasillaTrampaAtaque;
 import com.heroes.casillas.decoradores.cCasillaTrampaDefensa;
+import com.heroes.tropas.productoAbstracto.ITropa;
 
 import java.util.ArrayList;
 
 public class GestorTablero {
 
     private final cCasillaNormal[] casillas = new cCasillaNormal[100];
+    private ArrayList<ITropa> tropasEnEspera = new ArrayList<ITropa>();
 
     public void GestorTablero(){
 
@@ -80,5 +82,23 @@ public class GestorTablero {
         if (casillas[x].pisada()) {
             quitarDecorador(x);
         }
+    }
+
+
+    /// Tropas
+    public void crearTropa(ITropa tropa ){
+        // Validar que se pueda  crear la tropa, o sea que no exista una tropa igual en espera que pertenezca al
+        // mismo jugador
+
+        this.tropasEnEspera.add(tropa);
+    }
+
+    private boolean verificarTropa(ITropa tropa){
+
+        for(ITropa t : this.tropasEnEspera){
+           // if( t.)
+
+        }
+        return true;
     }
 }

@@ -1,15 +1,35 @@
-<div class="containerTablero">
-<mat-grid-list cols="10">
-  <!-- <div *ngFor="let numer of casillas">
-    <mat-grid-tile [ngStyle]="{'background-color': bgColor}">
-      <div> {{numer}}</div>
-    </mat-grid-tile>
-  </div> -->
-  <div *ngFor="let c of casillasTrop">
-    <mat-grid-tile [ngStyle]="{'background-color': bgColor}">
-      <div> {{c.tropa == null ? 'V' : c.tropa.nombre}}</div>
-    </mat-grid-tile>
+<div class="containerTablero row">
+  <div class="col-3">
+    <div class="menu-acciones row" >
+      <button mat-button class="col-12" (click)="mostrarAlcance('M')" >
+        MOVERSE
+      </button>
+      <button mat-button class="col-12">
+        ATACAR
+      </button>
+      <button mat-button class="col-12">
+        ACTIVAR POWER UP 
+      </button>
+    </div>
   </div>
-</mat-grid-list>
-</div>
+  <div class='col-9'>
+    <mat-grid-list cols="10">
+      <!-- <div *ngFor="let numer of casillas">
+      <mat-grid-tile [ngStyle]="{'background-color': bgColor}">
+        <div> {{numer}}</div>
+      </mat-grid-tile>
+    </div> -->
+      <div *ngFor="let c of casillasTrop;let i=index">
+        <mat-grid-tile [ngStyle]="c.tipo? {'background-color': alcanceColor} : {'background-color': bgColor} ">
+          <button mat-button *ngIf="c.tipo" (click)="accion(i, c.tipo)">
+            P
+          </button>
+          <button mat-button *ngIf="c.tropa" (click)="selectTropa(c.tropa, i)">
+            {{c.tropa.nombre}}
+          </button>
+        </mat-grid-tile>
+      </div>
+    </mat-grid-list>
+  </div>
 
+</div>

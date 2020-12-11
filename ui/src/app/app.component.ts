@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ComunicacionService } from './services/comunicacion.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ui';
+
+  activarMenuAccion: boolean; 
+
+
+  constructor(private comunicacionService: ComunicacionService) { }
+
+  ngOnInit(): void {
+
+    // this.comunicacionService.notificarMenuAccionObservable.subscribe( res => {
+    //   this.activarMenuAccion = res; 
+    // });
+  }
 }

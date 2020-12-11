@@ -92,6 +92,16 @@ public class Mago implements ITropa {
         return nombre;
     }
 
+    @Override
+    public char getEstado() {
+        return 0;
+    }
+
+    @Override
+    public String getIdJugador() {
+        return null;
+    }
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
