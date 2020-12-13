@@ -11,6 +11,10 @@ public class Arquero implements ITropa {
     private int ptsAlcance;
     private int oroTransportado;
     private String nombre;
+    private char estado;
+    private String idJugador;
+
+
 
     public Arquero(){
         this.nombre = "Arquero";
@@ -21,7 +25,19 @@ public class Arquero implements ITropa {
         this.ptsAtaque = 3;
         this.ptsAlcance = 4;
         this.oroTransportado = 0;
+        this.estado = 'E';
     }
+
+    public char getEstado() {
+        return estado;
+    }
+
+
+
+    public void setEstado(char estado) {
+        this.estado = estado;
+    }
+
 
     public int getPrecio() {
         return precio;
@@ -87,6 +103,14 @@ public class Arquero implements ITropa {
         }
     }
 
+    public String getIdJugador() {
+        return idJugador;
+    }
+
+    public void setIdJugador(String idJugador) {
+        this.idJugador = idJugador;
+    }
+
     public String getNombre() {
         return nombre;
     }
@@ -94,6 +118,7 @@ public class Arquero implements ITropa {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
 
     @Override
     public ITropa atacarTropa(ITropa objetivo) {
@@ -135,5 +160,10 @@ public class Arquero implements ITropa {
     @Override
     public int pasarOro() {
         return this.getOroTransportado();
+    }
+
+    @Override
+    public String obtenerIdJugador() {
+        return this.getIdJugador();
     }
 }

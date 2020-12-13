@@ -87,11 +87,23 @@ public class Asesino implements ITropa {
         }else {
             this.oroTransportado = oroTransportado;
         }
-
     }
+
+
 
     public String getNombre() {
         return nombre;
+    }
+
+    @Override
+    public char getEstado() {
+        return 0;
+    }
+
+    @Override
+    public String obtenerIdJugador() {
+
+        return null;
     }
 
     public void setNombre(String nombre) {

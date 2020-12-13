@@ -17,4 +17,6 @@ class cCasillaNormalTest {
 	void probarEstaVacia() {
 		assertTrue(casillaNormal.estaVacia());
 	}
+
+
 }
