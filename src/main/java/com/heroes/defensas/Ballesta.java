@@ -1,5 +1,7 @@
 package com.heroes.defensas;
 
+import com.heroes.tropas.productoAbstracto.ITropa;
+
 public class Ballesta implements IDefensa{
 
     private int precio;
@@ -59,12 +61,23 @@ public class Ballesta implements IDefensa{
     }
 
     @Override
-    public void atacar(int ataque) {
-        //METODO DE ATACAR
+    public boolean atacar(ITropa tropa) {
+      return tropa.defender(this.getAtkPuntos());
+
+
+
     }
 
     @Override
-    public void defender(int ataque) {
-        
+    public boolean defender(int ataque) {
+
+        if (this.vida > ataque){
+            this.setVida(this.getVida() - ataque);
+            return true;
+        }else{
+            return false;
+        }
+
+
     }
 }

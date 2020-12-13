@@ -1,8 +1,10 @@
 package com.heroes.defensas;
 
+import com.heroes.tropas.productoAbstracto.ITropa;
+
 public interface IDefensa {
 
-    public void atacar(int ataque); //falta el target de tipo tropa
+    public boolean atacar(ITropa tropa); //falta el target de tipo tropa
 
-    public void defender(int ataque);
+    public boolean defender(int ataque);
 }
