@@ -12,10 +12,11 @@ import java.util.ArrayList;
 
 public class GestorTablero {
 
+    private final GestorGemas gestorGemas = new GestorGemas();
     private final cCasillaNormal[] casillas = new cCasillaNormal[100];
-    private ArrayList<ITropa> tropasEnEspera = new ArrayList<ITropa>();
+    private ArrayList<ITropa> tropasEnEspera = new ArrayList<>();
 
-    public void GestorTablero(){
+    public GestorTablero(){
 
     }
 
@@ -45,7 +46,21 @@ public class GestorTablero {
                 decorarCasilla(i, (int) (Math.random() * 4) );
         }
 
+        poblarCasillasConGemas(casillasEspeciales);
+
         this.llenarCasillasNormales();
+    }
+
+    private void poblarCasillasConGemas(ArrayList<Integer> casillasEspeciales) {
+        ArrayList<Integer> casillasGemas = new ArrayList<>();
+        int  numero;
+        while (casillasGemas.size() < 15){
+            numero = (int) (Math.random()*100);
+            if (!casillasGemas.contains(numero) && !casillasEspeciales.contains(numero)){
+                this.casillas[numero].setGema(gestorGemas.getRandomGema());
+                casillasGemas.add(numero);
+            }
+        }
     }
 
     // Para decorar las casillas PowerUp
