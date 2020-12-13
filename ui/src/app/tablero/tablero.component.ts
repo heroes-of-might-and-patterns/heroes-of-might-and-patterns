@@ -53,10 +53,6 @@ export class TableroComponent implements OnInit {
   }
 
   
-  // habilitarMenuAccion(estado: boolean): void {
-  //   this.comunicacionService.notificarMenuAccion(estado);
-  // }
-
   selectTropa(tropa: Tropa, indice: number): void {
     this.tropaSeleccionada = tropa;  
     this.indiceCasillaSeleccionada = indice;  
@@ -89,7 +85,6 @@ export class TableroComponent implements OnInit {
         for(let j = 0 ; j<= alcance -i; j++){
 
         if( coordX - i >= 0 && coordY -j >= 0){
-          //this.casillasTrop[this.indiceCasillaSeleccionada - i - j*10 ].tipo = tipo ==='M'? 1: 2; 
           if(tipo === 'M'){
             this.casillasTrop[this.indiceCasillaSeleccionada - i - j*10 ].tipo = 1; 
           }else {
@@ -102,7 +97,6 @@ export class TableroComponent implements OnInit {
         }
 
         if( coordX - i >= 0 && coordY +j <= 9){
-          //this.casillasTrop[this.indiceCasillaSeleccionada - i + j*10 ].tipo = tipo ==='M'? 1: 2; 
 
           if(tipo === 'M'){
             this.casillasTrop[this.indiceCasillaSeleccionada - i + j*10 ].tipo = 1; 
@@ -117,8 +111,7 @@ export class TableroComponent implements OnInit {
         }
 
         if( coordX + i <= 9 && coordY - j >= 0){
-         // this.casillasTrop[this.indiceCasillaSeleccionada + i - j*10 ].tipo = tipo ==='M'? 1: 2; 
-
+        
          if(tipo === 'M'){
           this.casillasTrop[this.indiceCasillaSeleccionada + i - j*10 ].tipo = 1; 
         }else {
@@ -132,8 +125,7 @@ export class TableroComponent implements OnInit {
         }
 
         if( coordX + i <= 9 && coordY + j <= 9){
-         //this.casillasTrop[this.indiceCasillaSeleccionada + i + j*10 ].tipo = tipo ==='M'? 1: 2; 
-         
+                 
          if(tipo === 'M'){
          this.casillasTrop[this.indiceCasillaSeleccionada + i + j*10 ].tipo = 1; 
         }else {
@@ -164,7 +156,6 @@ export class TableroComponent implements OnInit {
     this.actualizarDado(casillaObjetivo); 
     this.casillasTrop[casillaObjetivo].tropa = this.tropaSeleccionada;
     this.casillasTrop[this.indiceCasillaSeleccionada].tropa = null; 
-    //this.casillasTrop[this.indiceCasillaSeleccionada].tipo = 0; 
     this.pintarCasillasVacias();
     this.tropaSeleccionada = null;
     this.indiceCasillaSeleccionada = null; 
