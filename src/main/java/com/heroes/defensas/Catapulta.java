@@ -1,13 +1,16 @@
 package com.heroes.defensas;
 
+
 import com.heroes.tropas.productoAbstracto.ITropa;
 
 public class Catapulta implements IDefensa{
 
-    private int precio;
-    private int vida;
-    private int atkPuntos;
-    private int atkAlcance;
+
+	private int precio;
+	private int vida;
+	private int atkPuntos;
+	private int atkAlcance;
+
 
 
     public Catapulta() {
@@ -17,47 +20,57 @@ public class Catapulta implements IDefensa{
         this.atkAlcance = 2;
     }
 
-    public int getPrecio() {
-        return precio;
-    }
 
-    public void setPrecio(int precio) {
-        this.precio = precio;
-    }
+	public Catapulta(int precio, int vida, int atkPuntos, int atkAlcance) {
+		this.precio = precio;
+		this.vida = vida;
+		this.atkPuntos = atkPuntos;
+		this.atkAlcance = atkAlcance;
+	}
 
-    public int getVida() {
-        return vida;
-    }
 
-    public void setVida(int vida) {
-        this.vida = vida;
-    }
+	public int getPrecio() {
+		return precio;
+	}
 
-    public int getAtkPuntos() {
-        return atkPuntos;
-    }
+	public void setPrecio(int precio) {
+		this.precio = precio;
+	}
 
-    public void setAtkPuntos(int atkPuntos) {
-        this.atkPuntos = atkPuntos;
-    }
+	public int getVida() {
+		return vida;
+	}
 
-    public int getAtkAlcance() {
-        return atkAlcance;
-    }
+	public void setVida(int vida) {
+		this.vida = vida;
+	}
 
-    public void setAtkAlcance(int atkAlcance) {
-        this.atkAlcance = atkAlcance;
-    }
+	public int getAtkPuntos() {
+		return atkPuntos;
+	}
 
-    @Override
-    public String toString() {
-        return "Ballesta{" +
-                "precio=" + precio +
-                ", vida=" + vida +
-                ", atkPuntos=" + atkPuntos +
-                ", atkAlcance=" + atkAlcance +
-                '}';
-    }
+	public void setAtkPuntos(int atkPuntos) {
+		this.atkPuntos = atkPuntos;
+	}
+
+	public int getAtkAlcance() {
+		return atkAlcance;
+	}
+
+	public void setAtkAlcance(int atkAlcance) {
+		this.atkAlcance = atkAlcance;
+	}
+
+	@Override
+	public String toString() {
+		return "Ballesta{" +
+				"precio=" + precio +
+				", vida=" + vida +
+				", atkPuntos=" + atkPuntos +
+				", atkAlcance=" + atkAlcance +
+				'}';
+	}
+
 
     @Override
     public boolean atacar(ITropa tropa) {
@@ -73,4 +86,5 @@ public class Catapulta implements IDefensa{
             return false;
         }
     }
+
 }

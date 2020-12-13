@@ -3,7 +3,7 @@ package com.heroes.castillo;
 public class Castillo {
 	private int oro = 20, vida = 30;
 
-	public Castillo(){
+	public Castillo() {
 
 	}
 
@@ -11,30 +11,30 @@ public class Castillo {
 		return oro;
 	}
 
-	public int getVida() {
-		return vida;
-	}
-
 	public void setOro(int oro) {
 		this.oro = oro;
+	}
+
+	public int getVida() {
+		return vida;
 	}
 
 	public void setVida(int vida) {
 		this.vida = vida;
 	}
 
-	public void reducirVida(int cantidad){
-		if (cantidad > vida){
+	public void reducirVida(int cantidad) {
+		if (cantidad > vida) {
 			this.vida = 0;
-		}else {
+		} else {
 			this.vida -= cantidad;
 		}
 	}
 
-	public void reducirOro(int cantidad){
-		if (cantidad > oro){
+	public void reducirOro(int cantidad) {
+		if (cantidad > oro) {
 			this.oro = 0;
-		}else {
+		} else {
 			this.oro -= cantidad;
 		}
 	}

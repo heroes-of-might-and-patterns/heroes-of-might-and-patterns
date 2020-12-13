@@ -6,10 +6,10 @@ import com.heroes.tropas.productoConcreto.Bersequer;
 
 public class FabricaBersequer implements IFabricaTropa {
 
-    @Override
-    public ITropa crearTropa() {
-        Bersequer bersequer = new Bersequer();
+	@Override
+	public ITropa crearTropa() {
+		Bersequer bersequer = new Bersequer();
 
-        return bersequer;
-    }
+		return bersequer;
+	}
 }

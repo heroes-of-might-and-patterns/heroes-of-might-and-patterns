@@ -6,7 +6,7 @@ public abstract class aDecoradorCasilla extends cCasillaNormal {
 	public aDecoradorCasilla() {
 		this.casilla = new cCasillaNormal();
 	}
-	
+
 	public cCasillaNormal getCasilla() {
 		return casilla;
 	}

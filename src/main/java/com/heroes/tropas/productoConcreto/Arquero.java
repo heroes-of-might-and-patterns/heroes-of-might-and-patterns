@@ -3,7 +3,6 @@ package com.heroes.tropas.productoConcreto;
 import com.heroes.tropas.productoAbstracto.ITropa;
 
 public class Arquero implements ITropa {
-
     private int precio;
     private int vida;
     private int cantMoviminetos;

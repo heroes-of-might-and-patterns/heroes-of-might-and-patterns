@@ -3,22 +3,32 @@ import { NgModule } from '@angular/core';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 
+import { MatGridListModule } from '@angular/material/grid-list';
+import { FormsModule } from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
 import { DadoComponent } from './utils/dado/dado.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TableroComponent } from './tablero/tablero.component';
+import { FooterComponent } from './footer/footer.component';
+import { TropasJugadorComponent } from './tropas-jugador/tropas-jugador.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DadoComponent
+    DadoComponent,
+    TableroComponent,
+    FooterComponent,
+    TropasJugadorComponent,   
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatGridListModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
