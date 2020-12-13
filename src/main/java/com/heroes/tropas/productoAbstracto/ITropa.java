@@ -8,5 +8,5 @@ public interface ITropa {
     public int pasarOro();
     public String getNombre();
     public char getEstado();
-    public String getIdJugador();
+    public String obtenerIdJugador();
 }

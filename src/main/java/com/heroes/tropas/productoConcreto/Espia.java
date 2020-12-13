@@ -98,7 +98,7 @@ public class Espia implements ITropa {
     }
 
     @Override
-    public String getIdJugador() {
+    public String obtenerIdJugador() {
         return null;
     }
 

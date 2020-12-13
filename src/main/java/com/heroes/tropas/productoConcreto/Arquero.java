@@ -13,7 +13,7 @@ public class Arquero implements ITropa {
     private String nombre;
     private char estado;
     private String idJugador;
-    //private String idTropa;
+
 
 
     public Arquero(){
@@ -32,17 +32,12 @@ public class Arquero implements ITropa {
         return estado;
     }
 
+
+
     public void setEstado(char estado) {
         this.estado = estado;
     }
 
-    public String getIdJugador() {
-        return idJugador;
-    }
-
-    public void setIdJugador(String idJugador) {
-        this.idJugador = idJugador;
-    }
 
     public int getPrecio() {
         return precio;
@@ -108,6 +103,14 @@ public class Arquero implements ITropa {
         }
     }
 
+    public String getIdJugador() {
+        return idJugador;
+    }
+
+    public void setIdJugador(String idJugador) {
+        this.idJugador = idJugador;
+    }
+
     public String getNombre() {
         return nombre;
     }
@@ -115,6 +118,7 @@ public class Arquero implements ITropa {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
 
     @Override
     public ITropa atacarTropa(ITropa objetivo) {
@@ -156,5 +160,10 @@ public class Arquero implements ITropa {
     @Override
     public int pasarOro() {
         return this.getOroTransportado();
+    }
+
+    @Override
+    public String obtenerIdJugador() {
+        return this.getIdJugador();
     }
 }

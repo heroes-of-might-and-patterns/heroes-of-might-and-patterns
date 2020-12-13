@@ -89,6 +89,8 @@ public class Asesino implements ITropa {
         }
     }
 
+
+
     public String getNombre() {
         return nombre;
     }
@@ -99,7 +101,8 @@ public class Asesino implements ITropa {
     }
 
     @Override
-    public String getIdJugador() {
+    public String obtenerIdJugador() {
+
         return null;
     }
 

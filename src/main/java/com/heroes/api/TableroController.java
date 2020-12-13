@@ -19,7 +19,16 @@ public class TableroController {
     public TableroController(){
         this.gestorTablero = new GestorTablero();
         this.gestorTablero.iniciarTablero();
-        this.gestorTablero.getCasillas()[2].setTropa(new Arquero());
+
+        //Prueba
+        Arquero a = new Arquero();
+        a.setIdJugador("jug-1");
+
+        Arquero a2 = new Arquero();
+        a2.setIdJugador("jug-2");
+        this.gestorTablero.getCasillas()[2].setTropa(a);
+        this.gestorTablero.getCasillas()[13].setTropa(a2);
+
     }
 
     @GetMapping("/p")

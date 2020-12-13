@@ -6,5 +6,8 @@ export class Tropa{
     ptsAtaque: number;
     ptsAlcance: number;
     oroTransportado: number;
-    nombre: String;
+    nombre: string;
+    estado: string; 
+    idJugador: string; 
+
 }

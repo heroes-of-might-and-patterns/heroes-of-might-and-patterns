@@ -4,7 +4,7 @@
       <button mat-button class="col-12" (click)="mostrarAlcance('M')" >
         MOVERSE
       </button>
-      <button mat-button class="col-12">
+      <button mat-button class="col-12" (click)="mostrarAlcance('A')">
         ATACAR
       </button>
       <button mat-button class="col-12">
@@ -20,9 +20,11 @@
       </mat-grid-tile>
     </div> -->
       <div *ngFor="let c of casillasTrop;let i=index">
-        <mat-grid-tile [ngStyle]="c.tipo? {'background-color': alcanceColor} : {'background-color': bgColor} ">
-          <button mat-button *ngIf="c.tipo" (click)="accion(i, c.tipo)">
-            P
+        <mat-grid-tile [ngStyle]="c.tipo && !c.tropa? {'background-color': alcanceColor} : {'background-color': bgColor} ">
+          <button mat-button *ngIf="c.tipo == 1" (click)="accion(i, c.tipo)">            
+          </button>
+          <button mat-button *ngIf="c.tipo == 2" (click)="accion(i, c.tipo)" [ngStyle]="{'background-color': atacarColor}">          
+            {{c.tropa.nombre}} 
           </button>
           <button mat-button *ngIf="c.tropa" (click)="selectTropa(c.tropa, i)">
             {{c.tropa.nombre}}
