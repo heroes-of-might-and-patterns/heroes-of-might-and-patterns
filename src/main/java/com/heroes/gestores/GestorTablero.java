@@ -34,7 +34,6 @@ public class GestorTablero {
     public void iniciarTablero() {
         ArrayList<Integer> casillasEspeciales = new ArrayList<>();
         while (casillasEspeciales.size() < 14) {
-          //  int numero = (int) (Math.random() / 100);
             int  numero = (int) (Math.random()*100);
 
             if (!casillasEspeciales.contains(numero))
@@ -43,7 +42,6 @@ public class GestorTablero {
 
         for (int i = 0; i < casillas.length; i++) {
             if (casillasEspeciales.contains(i))
-               // decorarCasilla(i, (int) (Math.random() / 4) + 1);
                 decorarCasilla(i, (int) (Math.random() * 4) );
         }
 
