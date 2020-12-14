@@ -1,9 +1,12 @@
 package com.heroes.api;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import com.heroes.Jugador;
+import com.heroes.gestores.GestorJugador;
+import com.heroes.gestores.GestorTablero;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
 
 @RequestMapping("jugador")
 @RestController
@@ -11,4 +14,16 @@ import org.springframework.web.bind.annotation.RestController;
 public class JugadorController {
 
 
+    ArrayList<Jugador> jugadores = new ArrayList<>();
+
+
+    private GestorJugador gestorJugador;
+
+
+    @PostMapping
+    public void insertarJugadores(Jugador jugador){
+
+        System.out.println(jugador.getNombre());
+
+    }
 }

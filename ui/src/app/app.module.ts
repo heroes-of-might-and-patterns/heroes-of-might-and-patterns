@@ -37,8 +37,8 @@ import {pathToFileURL} from "url";
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot([
-      {path: '', component: InicioComponent, pathMatch: 'full'},
-      {path: 'tablero', component: TableroComponent},
+      {path: 'inicio', component: InicioComponent, pathMatch: 'full'},
+      {path: 'tablero', component: TableroComponent}
     ]),
     ReactiveFormsModule
   ],

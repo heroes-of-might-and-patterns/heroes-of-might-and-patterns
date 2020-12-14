@@ -14,6 +14,7 @@ export class InicioComponent implements OnInit {
 
   model = new Jugador();
   public jugadorForm: FormGroup;
+  public jugadorForm2: FormGroup;
   public id: number;
   public submitted: boolean = false;
   public error: object = null;
@@ -25,10 +26,13 @@ export class InicioComponent implements OnInit {
     this.jugadorForm = new FormGroup({
       Nombre: new FormControl('', Validators.required)
     });
+
+
   }
 
   get f() {
     return this.jugadorForm.controls;
+
   }
 
   crearJugador(){
