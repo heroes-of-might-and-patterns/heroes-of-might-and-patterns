@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class GestorJugador {
 
     private ArrayList<Jugador> jugadores = new ArrayList<>();
-    
+
     public void agregarJugadores(){
 
         Jugador jugador1 = new Jugador("1", "jugador1", 'p'); //p: pierde, g: gana

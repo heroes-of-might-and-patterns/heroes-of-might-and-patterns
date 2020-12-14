@@ -1,6 +1,7 @@
 package com.heroes.api;
 
 import com.heroes.casillas.cCasillaNormal;
+import com.heroes.gestores.GestorJugador;
 import com.heroes.gestores.GestorTablero;
 import com.heroes.tropas.productoConcreto.Arquero;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,11 +15,13 @@ import java.io.IOException;
 public class TableroController {
 
     private GestorTablero gestorTablero;
+    private GestorJugador gestorJugador;
 
     @Autowired
     public TableroController(){
         this.gestorTablero = new GestorTablero();
         this.gestorTablero.iniciarTablero();
+        this.gestorJugador.agregarJugadores();
 
         //Prueba
         Arquero a = new Arquero();
