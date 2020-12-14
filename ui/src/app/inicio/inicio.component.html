@@ -1,0 +1,31 @@
+<div>
+
+  <h1>Inicio</h1>
+
+  <form [formGroup]="jugadorForm" (ngSubmit)="crearJugador()">
+
+    <fieldset>
+      <label for="nombre">Nombre del primer jugador</label>
+
+      <input type="text" class="form-control" id="nombre" name="nombre" required [(ngModel)]="model.nombre" formControlName="Nombre" [ngClass]="{'is-invalid': submitted && f.Nombre.errors}">
+      <div *ngIf="submitted && f.Nombre.errors" class="invalid-feedback">
+        <div *ngIf="f.Nombre.errors.required">Nombre del primer jugador es requerido</div>
+
+        </div>
+
+        <label for="nombre2">Nombre del segundo jugador</label>
+
+        <input type="text" class="form-control" id="nombre2" name="nombre2" required [(ngModel)]="model.nombre" formControlName="Nombre" [ngClass]="{'is-invalid': submitted && f.Nombre.errors}">
+        <div *ngIf="submitted && f.Nombre.errors" class="invalid-feedback">
+          <div *ngIf="f.Nombre.errors.required">Nombre del segundo jugador es requerido</div>
+        </div>
+
+      <button class="btn btn-primary" type="submit" data-toggle="modal"
+              data-target="#Modal">Continuar </button>
+        </fieldset>
+
+  </form>
+
+
+
+</div>

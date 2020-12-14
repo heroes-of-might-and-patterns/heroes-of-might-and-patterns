@@ -5,6 +5,7 @@ public class Jugador {
     private String nombre;
     private char estado;
 
+
     public Jugador(String id, String nombre, char estado) {
         this.id = id;
         this.nombre = nombre;

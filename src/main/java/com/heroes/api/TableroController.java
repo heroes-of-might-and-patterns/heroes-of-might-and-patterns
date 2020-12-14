@@ -2,6 +2,7 @@ package com.heroes.api;
 
 import com.heroes.casillas.cCasillaNormal;
 import com.heroes.dtos.CasillaDto;
+import com.heroes.gestores.GestorJugador;
 import com.heroes.gestores.GestorTablero;
 import com.heroes.mappers.CasillaMapper;
 import com.heroes.tropas.productoConcreto.Arquero;
@@ -14,15 +15,19 @@ import java.io.IOException;
 
 @RequestMapping("api")
 @RestController
-@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST, RequestMethod.PUT})
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
 public class TableroController {
 
     private GestorTablero gestorTablero;
+    private GestorJugador gestorJugador;
+
     private CasillaMapper casillaMapper;
     @Autowired
     public TableroController(){
-        this.gestorTablero = GestorTablero.getInstancia();
+        this.gestorTablero = new GestorTablero();
+        this.gestorJugador = new GestorJugador(); 
         this.gestorTablero.iniciarTablero();
+        this.gestorJugador.agregarJugadores();
 
         this.casillaMapper = new CasillaMapper();
 
