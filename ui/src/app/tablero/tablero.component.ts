@@ -150,7 +150,7 @@ export class TableroComponent implements OnInit {
   }
 
   accion(casillaObjetivo: number, tipo: number): void {
-      // 1 es moverse 
+     // 1 es moverse 
     // 2 es atacar 
     
     this.actualizarDado(casillaObjetivo); 
@@ -158,8 +158,11 @@ export class TableroComponent implements OnInit {
     this.casillasTrop[this.indiceCasillaSeleccionada].tropa = null; 
     this.pintarCasillasVacias();
     this.tropaSeleccionada = null;
-    this.indiceCasillaSeleccionada = null; 
-    
+    this.indiceCasillaSeleccionada = null;     
+  }
+
+  atacar(casillaObjetivo: Casilla): void {
+    console.log(casillaObjetivo.tropa.nombre);
   }
 
   actualizarDado(casillaObjetivo: number): void {

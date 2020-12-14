@@ -23,6 +23,13 @@ public class GestorTablero {
         return casillas;
     }
 
+    public void actualizarTablero(cCasillaNormal[] tableroActualizado){
+        // Aca se podria implementar el patron observador para notificar a los jugadores
+        for(int i =0; i<this.casillas.length; i++){
+            this.casillas[i] = tableroActualizado[i];
+        }
+    }
+
     private void llenarCasillasNormales(){
         for(int i = 0; i<this.casillas.length; i++){
             if(casillas[i] == null){
@@ -32,7 +39,8 @@ public class GestorTablero {
     }
 
     public void iniciarTablero() {
-        ArrayList<Integer> casillasEspeciales = new ArrayList<>();
+        // Hay que corregir esto
+       /* ArrayList<Integer> casillasEspeciales = new ArrayList<>();
         while (casillasEspeciales.size() < 14) {
           //  int numero = (int) (Math.random() / 100);
             int  numero = (int) (Math.random()*100);
@@ -45,7 +53,7 @@ public class GestorTablero {
             if (casillasEspeciales.contains(i))
                // decorarCasilla(i, (int) (Math.random() / 4) + 1);
                 decorarCasilla(i, (int) (Math.random() * 4) );
-        }
+        }*/
 
         this.llenarCasillasNormales();
     }

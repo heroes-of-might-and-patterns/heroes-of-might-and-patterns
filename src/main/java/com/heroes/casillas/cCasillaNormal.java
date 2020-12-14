@@ -1,5 +1,6 @@
 package com.heroes.casillas;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.heroes.castillo.Castillo;
 import com.heroes.tropas.productoAbstracto.ITropa;
 
@@ -8,6 +9,11 @@ public class cCasillaNormal {
 	private ITropa tropa;
 
 	public cCasillaNormal() {
+	}
+
+	public cCasillaNormal(Castillo castillo,ITropa tropa) {
+		this.castillo = castillo;
+		this.tropa = tropa;
 	}
 
 	public ITropa getTropa() {
