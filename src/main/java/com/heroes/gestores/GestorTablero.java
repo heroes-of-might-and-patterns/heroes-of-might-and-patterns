@@ -15,22 +15,39 @@ public class GestorTablero {
 	private final GestorGemas gestorGemas = new GestorGemas();
 	private final cCasillaNormal[] casillas = new cCasillaNormal[100];
 	private ArrayList<ITropa> tropasEnEspera = new ArrayList<>();
+    private static GestorTablero instancia = null;
 
-	public GestorTablero() {
+
+    public  GestorTablero() {
 
 	}
 
-	public cCasillaNormal[] getCasillas() {
-		return casillas;
-	}
 
-	private void llenarCasillasNormales() {
-		for (int i = 0; i < this.casillas.length; i++) {
-			if (casillas[i] == null) {
-				casillas[i] = new cCasillaNormal();
-			}
-		}
-	}
+    public static GestorTablero getInstancia() {
+        if (instancia == null) {
+            instancia = new GestorTablero();
+        }
+        return instancia;
+    }
+
+    public cCasillaNormal[] getCasillas() {
+        return casillas;
+    }
+
+    public void actualizarTablero(cCasillaNormal[] tableroActualizado) {
+        // Aca se podria implementar el patron observador para notificar a los jugadores
+        for (int i = 0; i < this.casillas.length; i++) {
+            this.casillas[i] = tableroActualizado[i];
+        }
+    }
+
+    private void llenarCasillasNormales() {
+        for (int i = 0; i < this.casillas.length; i++) {
+            if (casillas[i] == null) {
+                casillas[i] = new cCasillaNormal();
+            }
+        }
+    }
 
 	public void iniciarTablero() {
 		ArrayList<Integer> casillasEspeciales = new ArrayList<>();
@@ -83,36 +100,45 @@ public class GestorTablero {
 		}
 	}
 
-	private void colocarCasillaDecorada(int x, cCasillaNormal decorado) {
-		this.casillas[x] = decorado;
-	}
+    private void colocarCasillaDecorada(int x, cCasillaNormal decorado) {
+        this.casillas[x] = decorado;
+    }
 
-	public void quitarDecorador(int x) {
-		aDecoradorCasilla decorado = (aDecoradorCasilla) this.casillas[x];
-		this.casillas[x] = decorado.getCasilla();
-	}
+    public void quitarDecorador(int x) {
+        aDecoradorCasilla decorado = (aDecoradorCasilla) this.casillas[x];
+        this.casillas[x] = decorado.getCasilla();
+    }
 
-	public void pisada(int x) {
-		if (casillas[x].pisada()) {
-			quitarDecorador(x);
-		}
-	}
+    public void pisada(int x) {
+        if (casillas[x].pisada()) {
+            quitarDecorador(x);
+        }
+    }
 
 
-	/// Tropas
-	public void crearTropa(ITropa tropa) {
-		// Validar que se pueda  crear la tropa, o sea que no exista una tropa igual en espera que pertenezca al
-		// mismo jugador
+    /// Tropas
+    public void crearTropa(ITropa tropa ){
+        // Validar que se pueda  crear la tropa, o sea que no exista una tropa igual en espera que pertenezca al
+        // mismo jugador
 
-		this.tropasEnEspera.add(tropa);
-	}
+        this.tropasEnEspera.add(tropa);
+    }
 
-	private boolean verificarTropa(ITropa tropa) {
+    private boolean verificarTropa(ITropa tropa){
 
-		for (ITropa t : this.tropasEnEspera) {
-			// if( t.)
+        for(ITropa t : this.tropasEnEspera){
+           // if( t.)
 
-		}
-		return true;
-	}
+        }
+        return true;
+    }
+
+    public void atacarTropa(int indiceAtacante, int indiceObjetivo) {
+        this.getCasillas()[indiceAtacante].getTropa().atacarTropa(this.getCasillas()[indiceObjetivo].getTropa());
+        if (this.getCasillas()[indiceObjetivo].getTropa().getEstado() == 'M') {
+            this.getCasillas()[indiceObjetivo] = new cCasillaNormal();
+        }
+    }
+
+
 }

@@ -1,5 +1,6 @@
 package com.heroes.tropas.productoConcreto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.heroes.tropas.productoAbstracto.ITropa;
 
 public class Arquero implements ITropa {
@@ -15,8 +16,7 @@ public class Arquero implements ITropa {
     private String idJugador;
 
 
-
-    public Arquero(){
+ public Arquero(){
         this.nombre = "Arquero";
         this.precio = 10;
         this.vida = 10;
@@ -25,8 +25,38 @@ public class Arquero implements ITropa {
         this.ptsAtaque = 3;
         this.ptsAlcance = 4;
         this.oroTransportado = 0;
-        this.estado = 'E';
+        this.estado = 'E';  // E: espera, A: activo, M: muerto
     }
+
+    public Arquero(int precio, int vida, int cantMoviminetos, int defensa, int ptsAtaque, int ptsAlcance, int oroTransportado, String nombre, char estado, String idJugador) {
+        this.precio = precio;
+        this.vida = vida;
+        this.cantMoviminetos = cantMoviminetos;
+        this.defensa = defensa;
+        this.ptsAtaque = ptsAtaque;
+        this.ptsAlcance = ptsAlcance;
+        this.oroTransportado = oroTransportado;
+        this.nombre = nombre;
+        this.estado = estado;
+        this.idJugador = idJugador;
+    }
+
+    /*    public Arquero(@JsonProperty("precio") int precio,@JsonProperty("vida") int vida,@JsonProperty("cantMoviminetos") int cantMoviminetos,
+                   @JsonProperty("defensa") int defensa,@JsonProperty("ptsAtaque")int ptsAtaque,
+                   @JsonProperty("ptsAlcance") int ptsAlcance, @JsonProperty("oroTransportado")int oroTransportado,
+                   @JsonProperty("nombre") String nombre,@JsonProperty("estado") char estado,
+                   @JsonProperty("idJugador") String idJugador) {
+        this.precio = precio;
+        this.vida = vida;
+        this.cantMoviminetos = cantMoviminetos;
+        this.defensa = defensa;
+        this.ptsAtaque = ptsAtaque;
+        this.ptsAlcance = ptsAlcance;
+        this.oroTransportado = oroTransportado;
+        this.nombre = nombre;
+        this.estado = estado;
+        this.idJugador = idJugador;
+    }*/
 
     public char getEstado() {
         return estado;
@@ -153,7 +183,14 @@ public class Arquero implements ITropa {
             ataque = ataque - this.getDefensa();
             this.setDefensa(0);
             this.setVida( this.getVida() - ataque );
-            return this.getVida() == 0 ? true : false;
+
+            if(this.getVida() == 0){
+                this.setEstado('M');
+                return true;
+            }else {
+                return false;
+            }
+
         }
     }
 

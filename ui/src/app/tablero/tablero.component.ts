@@ -149,12 +149,42 @@ export class TableroComponent implements OnInit {
     }
   }
 
-  accion(casillaObjetivo: number, tipo: number): void {
-      // 1 es moverse
+  mover(casillaObjetivo: number, tipo: number): void {
+     // 1 es moverse
     // 2 es atacar
 
     this.actualizarDado(casillaObjetivo);
     this.casillasTrop[casillaObjetivo].tropa = this.tropaSeleccionada;
+    this.casillasTrop[this.indiceCasillaSeleccionada].tropa = null;
+
+    this.TableroService.updateTablero(this.casillasTrop).subscribe({
+      next: res => {
+        this.casillasTrop = res;
+        this.pintarCasillasVacias();
+        this.tropaSeleccionada = null;
+        this.indiceCasillaSeleccionada = null;
+      },
+      error: err => {
+        console.log(err);
+      }
+    });
+
+  }
+
+  atacar(indiceObjetivo: number): void {
+    console.log('Objetivo:', indiceObjetivo);
+    console.log('Atacante:', this.indiceCasillaSeleccionada);
+    this.TableroService.atacarTropa(this.indiceCasillaSeleccionada, indiceObjetivo).subscribe({
+      next: res => {
+        this.casillasTrop = res;
+        this.pintarCasillasVacias();
+        this.tropaSeleccionada = null;
+        this.indiceCasillaSeleccionada = null;
+      },
+      error: err => {
+        console.log(err);
+      }
+    });
     this.casillasTrop[this.indiceCasillaSeleccionada].tropa = null;
     this.pintarCasillasVacias();
     this.tropaSeleccionada = null;
