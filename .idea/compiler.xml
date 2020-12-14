@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="heroes-of-might-and-patterns" target="8" />
+      <module name="heroes-of-might-and-patterns" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

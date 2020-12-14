@@ -22,7 +22,7 @@ public class TableroController {
     private GestorJugador gestorJugador;
 
     private CasillaMapper casillaMapper;
-    @Autowired
+    //@Autowired
     public TableroController(){
         this.gestorTablero = new GestorTablero();
         this.gestorTablero.iniciarTablero();
