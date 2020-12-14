@@ -1,14 +1,24 @@
 package com.heroes.defensas;
 
-public class Ballesta implements IDefensa {
+
+import com.heroes.tropas.productoAbstracto.ITropa;
+
+public class Ballesta implements IDefensa{
 
 	private int precio;
 	private int vida;
 	private int atkPuntos;
 	private int atkAlcance;
 
-	public Ballesta() {
-	}
+
+
+    public Ballesta() {
+        this.precio = 5;
+        this.vida = 3;
+        this.atkPuntos = 2;
+        this.atkAlcance = 2;
+    }
+
 
 	public Ballesta(int precio, int vida, int atkPuntos, int atkAlcance) {
 		this.precio = precio;
@@ -16,6 +26,7 @@ public class Ballesta implements IDefensa {
 		this.atkPuntos = atkPuntos;
 		this.atkAlcance = atkAlcance;
 	}
+
 
 	public int getPrecio() {
 		return precio;
@@ -59,13 +70,26 @@ public class Ballesta implements IDefensa {
 				'}';
 	}
 
-	@Override
-	public void atacar() {
-		//METODO DE ATACAR
-	}
 
-	@Override
-	public void defender(int ataque) {
-		//METODO DE DEFENDER
-	}
+    @Override
+    public boolean atacar(ITropa tropa) {
+      return tropa.defender(this.getAtkPuntos());
+
+
+
+    }
+
+    @Override
+    public boolean defender(int ataque) {
+
+        if (this.vida > ataque){
+            this.setVida(this.getVida() - ataque);
+            return true;
+        }else{
+            return false;
+        }
+
+
+    }
+
 }

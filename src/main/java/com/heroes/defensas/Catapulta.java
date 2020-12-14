@@ -1,14 +1,25 @@
 package com.heroes.defensas;
 
-public class Catapulta implements IDefensa {
+
+import com.heroes.tropas.productoAbstracto.ITropa;
+
+public class Catapulta implements IDefensa{
+
 
 	private int precio;
 	private int vida;
 	private int atkPuntos;
 	private int atkAlcance;
 
-	public Catapulta() {
-	}
+
+
+    public Catapulta() {
+        this.precio = 8;
+        this.vida = 3;
+        this.atkPuntos = 5;
+        this.atkAlcance = 2;
+    }
+
 
 	public Catapulta(int precio, int vida, int atkPuntos, int atkAlcance) {
 		this.precio = precio;
@@ -16,6 +27,7 @@ public class Catapulta implements IDefensa {
 		this.atkPuntos = atkPuntos;
 		this.atkAlcance = atkAlcance;
 	}
+
 
 	public int getPrecio() {
 		return precio;
@@ -59,13 +71,20 @@ public class Catapulta implements IDefensa {
 				'}';
 	}
 
-	@Override
-	public void atacar() {
-		//METODO DE ATACAR
-	}
 
-	@Override
-	public void defender(int ataque) {
-		//METODO DE DEFENDER
-	}
+    @Override
+    public boolean atacar(ITropa tropa) {
+        return tropa.defender(this.getAtkPuntos());
+    }
+
+    @Override
+    public boolean defender(int ataque) {
+        if (this.vida > ataque){
+            this.setVida(this.getVida() - ataque);
+            return true;
+        }else{
+            return false;
+        }
+    }
+
 }
