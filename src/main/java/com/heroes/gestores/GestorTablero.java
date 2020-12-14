@@ -15,28 +15,45 @@ public class GestorTablero {
 	private final GestorGemas gestorGemas = new GestorGemas();
 	private final cCasillaNormal[] casillas = new cCasillaNormal[100];
 	private ArrayList<ITropa> tropasEnEspera = new ArrayList<>();
+    private static GestorTablero instancia = null;
 
-	public GestorTablero() {
+
+    public  GestorTablero() {
 
 	}
 
-	public cCasillaNormal[] getCasillas() {
-		return casillas;
-	}
 
-	private void llenarCasillasNormales() {
-		for (int i = 0; i < this.casillas.length; i++) {
-			if (casillas[i] == null) {
-				casillas[i] = new cCasillaNormal();
-			}
-		}
-	}
+    public static GestorTablero getInstancia() {
+        if (instancia == null) {
+            instancia = new GestorTablero();
+        }
+        return instancia;
+    }
 
-	public void iniciarTablero() {
-		ArrayList<Integer> casillasEspeciales = new ArrayList<>();
-		int numero;
-		while (casillasEspeciales.size() < 14) {
-			numero = (int) (Math.random() * 100);
+    public cCasillaNormal[] getCasillas() {
+        return casillas;
+    }
+
+    public void actualizarTablero(cCasillaNormal[] tableroActualizado) {
+        // Aca se podria implementar el patron observador para notificar a los jugadores
+        for (int i = 0; i < this.casillas.length; i++) {
+            this.casillas[i] = tableroActualizado[i];
+        }
+    }
+
+    private void llenarCasillasNormales() {
+        for (int i = 0; i < this.casillas.length; i++) {
+            if (casillas[i] == null) {
+                casillas[i] = new cCasillaNormal();
+            }
+        }
+    }
+
+    public void iniciarTablero() {
+        ArrayList<Integer> casillasEspeciales = new ArrayList<>();
+        while (casillasEspeciales.size() < 14) {
+          //  int numero = (int) (Math.random() / 100);
+            int  numero = (int) (Math.random()*100);
 
 			if (!casillasEspeciales.contains(numero))
 				casillasEspeciales.add(numero);
@@ -112,7 +129,16 @@ public class GestorTablero {
 		for (ITropa t : this.tropasEnEspera) {
 			// if( t.)
 
-		}
-		return true;
-	}
+        }
+        return true;
+    }
+
+    public void atacarTropa(int indiceAtacante, int indiceObjetivo) {
+        this.getCasillas()[indiceAtacante].getTropa().atacarTropa(this.getCasillas()[indiceObjetivo].getTropa());
+        if (this.getCasillas()[indiceObjetivo].getTropa().getEstado() == 'M') {
+            this.getCasillas()[indiceObjetivo] = new cCasillaNormal();
+        }
+    }
+
+
 }

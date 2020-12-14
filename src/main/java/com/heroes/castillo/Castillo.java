@@ -1,10 +1,17 @@
 package com.heroes.castillo;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Castillo {
 	private int oro = 20, vida = 30;
 
 	public Castillo() {
 
+	}
+
+	public Castillo(@JsonProperty("oro") int oro,@JsonProperty("vida") int vida) {
+		this.oro = oro;
+		this.vida = vida;
 	}
 
 	public int getOro() {
