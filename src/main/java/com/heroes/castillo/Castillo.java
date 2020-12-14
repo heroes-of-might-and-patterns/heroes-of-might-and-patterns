@@ -1,10 +1,18 @@
 package com.heroes.castillo;
 
-public class Castillo {
+import com.heroes.observador.Concreto.Observador;
+import com.heroes.observador.Interfaces.IObservador;
+import com.heroes.observador.Interfaces.ISujeto;
+
+import java.util.ArrayList;
+
+public class Castillo implements ISujeto {
 	private int oro = 20, vida = 30;
+	private boolean sinVida;
+	ArrayList<IObservador> observadors = new ArrayList<>();
 
 	public Castillo() {
-
+		addObserver(new Observador());
 	}
 
 	public int getOro() {
@@ -26,6 +34,7 @@ public class Castillo {
 	public void reducirVida(int cantidad) {
 		if (cantidad > vida) {
 			this.vida = 0;
+			notifyObservers();
 		} else {
 			this.vida -= cantidad;
 		}
@@ -37,5 +46,24 @@ public class Castillo {
 		} else {
 			this.oro -= cantidad;
 		}
+	}
+
+	public boolean isSinVida() {
+		return sinVida;
+	}
+
+	public void setSinVida(boolean sinVida) {
+		this.sinVida = sinVida;
+	}
+
+	@Override
+	public void addObserver(IObservador o) {
+		observadors.add(o);
+	}
+
+	@Override
+	public void notifyObservers() {
+		for(IObservador o: observadors)
+			o.update(this);
 	}
 }
