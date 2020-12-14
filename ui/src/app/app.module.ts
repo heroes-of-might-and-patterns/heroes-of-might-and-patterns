@@ -4,7 +4,9 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 
 import { MatGridListModule } from '@angular/material/grid-list';
-import { FormsModule } from '@angular/forms';
+
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+
 
 
 import { AppComponent } from './app.component';
@@ -16,13 +18,16 @@ import { TropasJugadorComponent } from './tropas-jugador/tropas-jugador.componen
 import { TableroService } from './services/tablero.service';
 import { HttpClientModule } from '@angular/common/http';
 
+import {RouterModule} from "@angular/router";
+import {pathToFileURL} from "url";
+
 @NgModule({
   declarations: [
     AppComponent,
     DadoComponent,
     TableroComponent,
     FooterComponent,
-    TropasJugadorComponent,   
+    TropasJugadorComponent
   ],
   imports: [
     BrowserModule,
@@ -32,6 +37,11 @@ import { HttpClientModule } from '@angular/common/http';
     MatGridListModule,
     FormsModule,
     HttpClientModule,
+    RouterModule.forRoot([
+      {path: '', component: TableroComponent}
+    ]),
+    ReactiveFormsModule
+
   ],
   providers: [
     TableroService

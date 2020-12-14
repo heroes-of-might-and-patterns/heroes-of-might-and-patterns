@@ -1,7 +1,9 @@
 package com.heroes.api;
 
+import com.heroes.Jugador;
 import com.heroes.casillas.cCasillaNormal;
 import com.heroes.dtos.CasillaDto;
+import com.heroes.gestores.GestorJugador;
 import com.heroes.gestores.GestorTablero;
 import com.heroes.mappers.CasillaMapper;
 import com.heroes.tropas.productoConcreto.Arquero;
@@ -66,6 +68,13 @@ public class TableroController {
                             @RequestParam(value = "indiceObjetivo") int indiceObjetivo){
         this.gestorTablero.atacarTropa(indiceAtacante, indiceObjetivo);
         return this.gestorTablero.getCasillas();
+    }
+
+    @GetMapping("/cambioTurno")
+    public Jugador cambioTurno(@RequestParam(value = "id") String id){
+
+        return this.gestorJugador.retornarJugador(id);
+
     }
 
 }
