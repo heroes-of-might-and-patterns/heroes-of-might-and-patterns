@@ -22,9 +22,10 @@ public class TableroController {
     private GestorJugador gestorJugador;
 
     private CasillaMapper casillaMapper;
-    //@Autowired
+    @Autowired
     public TableroController(){
         this.gestorTablero = new GestorTablero();
+        this.gestorJugador = new GestorJugador(); 
         this.gestorTablero.iniciarTablero();
         this.gestorJugador.agregarJugadores();
 
