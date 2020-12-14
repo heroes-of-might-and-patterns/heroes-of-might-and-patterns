@@ -1,6 +1,7 @@
 package com.heroes.casillas;
 
 import com.heroes.casillas.gemas.AGema;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.heroes.castillo.Castillo;
 import com.heroes.tropas.productoAbstracto.ITropa;
 
@@ -18,6 +19,11 @@ public class cCasillaNormal {
 
 	public void setGema(AGema gema) {
 		this.gema = gema;
+	}
+
+	public cCasillaNormal(Castillo castillo,ITropa tropa) {
+		this.castillo = castillo;
+		this.tropa = tropa;
 	}
 
 	public ITropa getTropa() {

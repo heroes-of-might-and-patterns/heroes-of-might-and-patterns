@@ -3,7 +3,7 @@ package com.heroes.castillo;
 import com.heroes.observador.Concreto.Observador;
 import com.heroes.observador.Interfaces.IObservador;
 import com.heroes.observador.Interfaces.ISujeto;
-
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.ArrayList;
 
 public class Castillo implements ISujeto {
@@ -12,6 +12,12 @@ public class Castillo implements ISujeto {
 	ArrayList<IObservador> observadors = new ArrayList<>();
 
 	public Castillo() {
+		addObserver(new Observador());
+	}
+
+	public Castillo(@JsonProperty("oro") int oro,@JsonProperty("vida") int vida) {
+		this.oro = oro;
+		this.vida = vida;
 		addObserver(new Observador());
 	}
 
