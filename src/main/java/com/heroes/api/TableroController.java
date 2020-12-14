@@ -2,9 +2,13 @@ package com.heroes.api;
 
 import com.heroes.casillas.cCasillaNormal;
 import com.heroes.dtos.CasillaDto;
+import com.heroes.gestores.GestorJugador;
 import com.heroes.gestores.GestorTablero;
+import com.heroes.mappers.CasillaMapper;
 import com.heroes.tropas.productoConcreto.Arquero;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.NonNull;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
