@@ -14,7 +14,7 @@ import java.io.IOException;
 
 @RequestMapping("api")
 @RestController
-@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST, RequestMethod.PUT})
 public class TableroController {
 
     private GestorTablero gestorTablero;
@@ -59,6 +59,13 @@ public class TableroController {
     public String prueba(@Validated @NonNull @RequestBody CasillaDto c){
         System.out.println(c);
         return "s";
+    }
+
+    @PutMapping("/tablero/atacar")
+    public cCasillaNormal[] atacarTropa(@RequestParam(value = "indiceAtacante") int indiceAtacante,
+                            @RequestParam(value = "indiceObjetivo") int indiceObjetivo){
+        this.gestorTablero.atacarTropa(indiceAtacante, indiceObjetivo);
+        return this.gestorTablero.getCasillas();
     }
 
 }

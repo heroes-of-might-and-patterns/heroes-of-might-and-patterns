@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RequestMapping("api")
 @RestController
-@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST, RequestMethod.PUT})
 public class TropaController {
 
     private GestorTablero gestorTablero;

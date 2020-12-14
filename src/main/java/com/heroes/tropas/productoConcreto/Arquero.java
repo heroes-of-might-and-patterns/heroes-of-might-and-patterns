@@ -25,7 +25,7 @@ public class Arquero implements ITropa {
         this.ptsAtaque = 3;
         this.ptsAlcance = 4;
         this.oroTransportado = 0;
-        this.estado = 'E';
+        this.estado = 'E';  // E: espera, A: activo, M: muerto
     }
 
     public Arquero(int precio, int vida, int cantMoviminetos, int defensa, int ptsAtaque, int ptsAlcance, int oroTransportado, String nombre, char estado, String idJugador) {
@@ -183,7 +183,14 @@ public class Arquero implements ITropa {
             ataque = ataque - this.getDefensa();
             this.setDefensa(0);
             this.setVida( this.getVida() - ataque );
-            return this.getVida() == 0 ? true : false;
+
+            if(this.getVida() == 0){
+                this.setEstado('M');
+                return true;
+            }else {
+                return false;
+            }
+
         }
     }
 

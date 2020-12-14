@@ -18,7 +18,7 @@
         <mat-grid-tile
           *ngIf="c.tipo !== 2"
           [ngStyle]="c.tipo !== 0 && !c.tropa? {'background-color': alcanceColor} : {'background-color': bgColor} ">
-          <button mat-button *ngIf="c.tipo === 1" (click)="accion(i, c.tipo)">
+          <button mat-button *ngIf="c.tipo === 1" (click)="mover(i, c.tipo)">
             Mov
           </button>
           <!-- <button mat-button *ngIf="c.tipo === 2" (click)="accion(i, c.tipo)"
@@ -30,7 +30,7 @@
           </button>
         </mat-grid-tile>
         <mat-grid-tile  *ngIf="c.tipo === 2" [ngStyle]="{'background-color': atacarColor}" >
-          <button mat-button (click)="atacar(c)"
+          <button mat-button (click)="atacar(i)"
             [ngStyle]="{'background-color': atacarColor}">
             {{c.tropa.nombre}}
           </button>

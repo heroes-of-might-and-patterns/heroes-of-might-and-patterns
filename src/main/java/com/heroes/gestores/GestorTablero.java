@@ -104,7 +104,7 @@ public class GestorTablero {
 
 
     /// Tropas
-    public void crearTropa(ITropa tropa ){
+    /*public void crearTropa(ITropa tropa ){
         // Validar que se pueda  crear la tropa, o sea que no exista una tropa igual en espera que pertenezca al
         // mismo jugador
 
@@ -118,5 +118,14 @@ public class GestorTablero {
 
         }
         return true;
+    }*/
+
+    public void atacarTropa(int indiceAtacante, int indiceObjetivo){
+        this.getCasillas()[indiceAtacante].getTropa().atacarTropa(this.getCasillas()[indiceObjetivo].getTropa());
+        if(this.getCasillas()[indiceObjetivo].getTropa().getEstado() == 'M'){
+            this.getCasillas()[indiceObjetivo] = new cCasillaNormal();
+        }
     }
+
+
 }
