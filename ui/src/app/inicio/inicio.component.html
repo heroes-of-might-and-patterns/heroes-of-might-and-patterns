@@ -1,0 +1,23 @@
+<div>
+
+  <h1>Inicio</h1>
+
+  <form [formGroup]="jugadorForm" (ngSubmit)="crearJugador()">
+
+    <fieldset>
+      <label for="nombre">Nombre</label>
+
+      <input type="text" class="form-control" id="nombre" name="nombre" required [(ngModel)]="model.nombre" formControlName="Nombre" [ngClass]="{'is-invalid': submitted && f.Nombre.errors}">
+      <div *ngIf="submitted && f.Nombre.errors" class="invalid-feedback">
+        <div *ngIf="f.Nombre.errors.required">Nombre es requerido</div>
+      </div>
+
+      <button class="btn btn-primary" type="submit" data-toggle="modal"
+              data-target="#Modal">
+        Continuar
+      </button>
+    </fieldset>
+
+  </form>
+
+</div>
