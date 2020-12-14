@@ -1,4 +1,9 @@
 <div class="containerTablero row">
+
+  <div>
+    <h1>{{jugador.nombre}}</h1>
+
+  </div>
   <div class="col-3">
     <div class="menu-acciones row">
       <button mat-button class="col-12" (click)="mostrarAlcance('M')">
@@ -10,7 +15,7 @@
       <button mat-button class="col-12">
         ACTIVAR POWER UP
       </button>
-      <button mat-button class="col-12" (click)="cambiarTurno()" )>
+      <button mat-button class="col-12" (click)="cambiarTurno(jugador.id)" )>
         TERMINAR TURNO
       </button>
     </div>

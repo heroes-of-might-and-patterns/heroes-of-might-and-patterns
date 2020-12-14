@@ -15,7 +15,7 @@ import { FooterComponent } from './footer/footer.component';
 import { TropasJugadorComponent } from './tropas-jugador/tropas-jugador.component';
 import { TableroService } from './services/tablero.service';
 import { HttpClientModule } from '@angular/common/http';
-import { InicioComponent } from './inicio/inicio.component';
+
 import {RouterModule} from "@angular/router";
 import {pathToFileURL} from "url";
 
@@ -26,7 +26,6 @@ import {pathToFileURL} from "url";
     TableroComponent,
     FooterComponent,
     TropasJugadorComponent,
-    InicioComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,8 +36,7 @@ import {pathToFileURL} from "url";
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot([
-      {path: 'inicio', component: InicioComponent, pathMatch: 'full'},
-      {path: 'tablero', component: TableroComponent}
+      {path: '', component: TableroComponent}
     ]),
     ReactiveFormsModule
   ],

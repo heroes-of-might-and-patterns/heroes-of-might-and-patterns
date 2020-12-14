@@ -12,7 +12,7 @@ export class TableroService {
   private headers = new HttpHeaders({
     'Content-Type': 'application/json',
   });
-  
+
   constructor(private http: HttpClient) { }
 
   getTablero(): Observable<Casilla[]>{
@@ -25,5 +25,9 @@ export class TableroService {
 
   atacarTropa(indiceAtacante: number, indiceObjetivo: number): Observable<Casilla[]>{
     return this.http.put<Casilla[]>(this._baseUrl+`/atacar?indiceAtacante=${indiceAtacante}&indiceObjetivo=${indiceObjetivo}`, {headers: this.headers});
+  }
+
+  getJugador(id: string){
+    return this.http.get(this._baseUrl + `/cambioTurno?id=${id}`);
   }
 }
