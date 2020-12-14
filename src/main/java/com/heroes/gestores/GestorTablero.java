@@ -69,21 +69,21 @@ public class GestorTablero {
 		cCasillaNormal casilla = this.casillas[x];
 		switch (tipo) {
 			case 0:
-				decorarCasilla(x, new cCasillaTrampaDefensa(casilla));
+				colocarCasillaDecorada(x, new cCasillaTrampaDefensa(casilla));
 				break;
 			case 1:
-				decorarCasilla(x, new cCasillaPowerUpDefensa(casilla));
+				colocarCasillaDecorada(x, new cCasillaPowerUpDefensa(casilla));
 				break;
 			case 2:
-				decorarCasilla(x, new cCasillaTrampaAtaque(casilla));
+				colocarCasillaDecorada(x, new cCasillaTrampaAtaque(casilla));
 				break;
 			case 3:
-				decorarCasilla(x, new cCasillaPowerUpAtaque(casilla));
+				colocarCasillaDecorada(x, new cCasillaPowerUpAtaque(casilla));
 				break;
 		}
 	}
 
-	private void decorarCasilla(int x, cCasillaNormal decorado) {
+	private void colocarCasillaDecorada(int x, cCasillaNormal decorado) {
 		this.casillas[x] = decorado;
 	}
 
