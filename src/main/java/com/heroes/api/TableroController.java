@@ -1,5 +1,6 @@
 package com.heroes.api;
 
+import com.heroes.Jugador;
 import com.heroes.casillas.cCasillaNormal;
 import com.heroes.dtos.CasillaDto;
 import com.heroes.gestores.GestorJugador;
@@ -25,7 +26,7 @@ public class TableroController {
     @Autowired
     public TableroController(){
         this.gestorTablero = new GestorTablero();
-        this.gestorJugador = new GestorJugador(); 
+        this.gestorJugador = new GestorJugador();
         this.gestorTablero.iniciarTablero();
         this.gestorJugador.agregarJugadores();
 
@@ -71,6 +72,13 @@ public class TableroController {
                             @RequestParam(value = "indiceObjetivo") int indiceObjetivo){
         this.gestorTablero.atacarTropa(indiceAtacante, indiceObjetivo);
         return this.gestorTablero.getCasillas();
+    }
+
+    @GetMapping("/cambioTurno")
+    public Jugador cambioTurno(@RequestParam(value = "id") String id){
+
+        return this.gestorJugador.retornarJugador(id);
+
     }
 
 }

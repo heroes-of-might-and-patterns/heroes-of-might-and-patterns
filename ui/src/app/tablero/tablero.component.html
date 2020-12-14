@@ -1,4 +1,10 @@
 <div class="containerTablero row">
+
+
+  <div *ngFor="let jugador of TableroService.arrJugadores">
+    <h1>{{jugador.nombre}}</h1>
+
+  </div>
   <div class="col-3">
     <div class="menu-acciones row">
       <button mat-button class="col-12" (click)="mostrarAlcance('M')">
@@ -10,7 +16,7 @@
       <button mat-button class="col-12">
         ACTIVAR POWER UP
       </button>
-      <button mat-button class="col-12" (click)="cambiarTurno()" )>
+      <button  *ngFor="let jugador of TableroService.arrJugadores" mat-button class="col-12" (click)="cambiarTurno(jugador.id)" )>
         TERMINAR TURNO
       </button>
     </div>
