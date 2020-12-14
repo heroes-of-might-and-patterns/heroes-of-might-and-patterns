@@ -49,11 +49,11 @@ public class GestorTablero {
         }
     }
 
-    public void iniciarTablero() {
-        ArrayList<Integer> casillasEspeciales = new ArrayList<>();
-        while (casillasEspeciales.size() < 14) {
-          //  int numero = (int) (Math.random() / 100);
-            int  numero = (int) (Math.random()*100);
+	public void iniciarTablero() {
+		ArrayList<Integer> casillasEspeciales = new ArrayList<>();
+		int numero;
+		while (casillasEspeciales.size() < 14) {
+			numero = (int) (Math.random() * 100);
 
 			if (!casillasEspeciales.contains(numero))
 				casillasEspeciales.add(numero);
@@ -100,34 +100,34 @@ public class GestorTablero {
 		}
 	}
 
-	private void colocarCasillaDecorada(int x, cCasillaNormal decorado) {
-		this.casillas[x] = decorado;
-	}
+    private void colocarCasillaDecorada(int x, cCasillaNormal decorado) {
+        this.casillas[x] = decorado;
+    }
 
-	public void quitarDecorador(int x) {
-		aDecoradorCasilla decorado = (aDecoradorCasilla) this.casillas[x];
-		this.casillas[x] = decorado.getCasilla();
-	}
+    public void quitarDecorador(int x) {
+        aDecoradorCasilla decorado = (aDecoradorCasilla) this.casillas[x];
+        this.casillas[x] = decorado.getCasilla();
+    }
 
-	public void pisada(int x) {
-		if (casillas[x].pisada()) {
-			quitarDecorador(x);
-		}
-	}
+    public void pisada(int x) {
+        if (casillas[x].pisada()) {
+            quitarDecorador(x);
+        }
+    }
 
 
-	/// Tropas
-	public void crearTropa(ITropa tropa) {
-		// Validar que se pueda  crear la tropa, o sea que no exista una tropa igual en espera que pertenezca al
-		// mismo jugador
+    /// Tropas
+    public void crearTropa(ITropa tropa ){
+        // Validar que se pueda  crear la tropa, o sea que no exista una tropa igual en espera que pertenezca al
+        // mismo jugador
 
-		this.tropasEnEspera.add(tropa);
-	}
+        this.tropasEnEspera.add(tropa);
+    }
 
-	private boolean verificarTropa(ITropa tropa) {
+    private boolean verificarTropa(ITropa tropa){
 
-		for (ITropa t : this.tropasEnEspera) {
-			// if( t.)
+        for(ITropa t : this.tropasEnEspera){
+           // if( t.)
 
         }
         return true;
