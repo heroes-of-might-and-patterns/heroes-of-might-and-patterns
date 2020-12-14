@@ -12,93 +12,107 @@ import java.util.ArrayList;
 
 public class GestorTablero {
 
-    private final cCasillaNormal[] casillas = new cCasillaNormal[100];
-    private ArrayList<ITropa> tropasEnEspera = new ArrayList<ITropa>();
+	private final GestorGemas gestorGemas = new GestorGemas();
+	private final cCasillaNormal[] casillas = new cCasillaNormal[100];
+	private ArrayList<ITropa> tropasEnEspera = new ArrayList<>();
 
-    public void GestorTablero(){
+	public GestorTablero() {
 
-    }
+	}
 
-    public cCasillaNormal[] getCasillas() {
-        return casillas;
-    }
+	public cCasillaNormal[] getCasillas() {
+		return casillas;
+	}
 
-    private void llenarCasillasNormales(){
-        for(int i = 0; i<this.casillas.length; i++){
-            if(casillas[i] == null){
-                casillas[i] = new cCasillaNormal();
-            }
-        }
-    }
+	private void llenarCasillasNormales() {
+		for (int i = 0; i < this.casillas.length; i++) {
+			if (casillas[i] == null) {
+				casillas[i] = new cCasillaNormal();
+			}
+		}
+	}
 
-    public void iniciarTablero() {
-        ArrayList<Integer> casillasEspeciales = new ArrayList<>();
-        while (casillasEspeciales.size() < 14) {
-          //  int numero = (int) (Math.random() / 100);
-            int  numero = (int) (Math.random()*100);
+	public void iniciarTablero() {
+		ArrayList<Integer> casillasEspeciales = new ArrayList<>();
+		int numero;
+		while (casillasEspeciales.size() < 14) {
+			numero = (int) (Math.random() * 100);
 
-            if (!casillasEspeciales.contains(numero))
-                casillasEspeciales.add(numero);
-        }
+			if (!casillasEspeciales.contains(numero))
+				casillasEspeciales.add(numero);
+		}
 
-        for (int i = 0; i < casillas.length; i++) {
-            if (casillasEspeciales.contains(i))
-               // decorarCasilla(i, (int) (Math.random() / 4) + 1);
-                decorarCasilla(i, (int) (Math.random() * 4) );
-        }
+		for (int i = 0; i < casillas.length; i++) {
+			if (casillasEspeciales.contains(i))
+				decorarCasilla(i, (int) (Math.random() * 4));
+		}
 
-        this.llenarCasillasNormales();
-    }
+		this.llenarCasillasNormales();
 
-    // Para decorar las casillas PowerUp
-    private void decorarCasilla(int x, int tipo) {
-        cCasillaNormal casilla = this.casillas[x];
-        switch (tipo) {
-            case 0:
-                decorarCasilla(x, new cCasillaTrampaDefensa(casilla));
-                break;
-            case 1:
-                decorarCasilla(x, new cCasillaPowerUpDefensa(casilla));
-                break;
-            case 2:
-                decorarCasilla(x, new cCasillaTrampaAtaque(casilla));
-                break;
-            case 3:
-                decorarCasilla(x, new cCasillaPowerUpAtaque(casilla));
-                break;
-        }
-    }
+		poblarCasillasConGemas(casillasEspeciales);
+	}
 
-    private void decorarCasilla(int x, cCasillaNormal decorado) {
-        this.casillas[x] = decorado;
-    }
+	private void poblarCasillasConGemas(ArrayList<Integer> casillasEspeciales) {
+		ArrayList<Integer> casillasGemas = new ArrayList<>();
+		int numero;
+		while (casillasGemas.size() < 15) {
+			numero = (int) (Math.random() * 100);
+			if (!casillasGemas.contains(numero) && !casillasEspeciales.contains(numero)) {
+				this.casillas[numero].setGema(gestorGemas.getRandomGema());
+				casillasGemas.add(numero);
+			}
+		}
+	}
 
-    public void quitarDecorador(int x) {
-        aDecoradorCasilla decorado = (aDecoradorCasilla) this.casillas[x];
-        this.casillas[x] = decorado.getCasilla();
-    }
+	// Para decorar las casillas PowerUp
+	private void decorarCasilla(int x, int tipo) {
+		cCasillaNormal casilla = this.casillas[x];
+		switch (tipo) {
+			case 0:
+				colocarCasillaDecorada(x, new cCasillaTrampaDefensa(casilla));
+				break;
+			case 1:
+				colocarCasillaDecorada(x, new cCasillaPowerUpDefensa(casilla));
+				break;
+			case 2:
+				colocarCasillaDecorada(x, new cCasillaTrampaAtaque(casilla));
+				break;
+			case 3:
+				colocarCasillaDecorada(x, new cCasillaPowerUpAtaque(casilla));
+				break;
+		}
+	}
 
-    public void pisada(int x) {
-        if (casillas[x].pisada()) {
-            quitarDecorador(x);
-        }
-    }
+	private void colocarCasillaDecorada(int x, cCasillaNormal decorado) {
+		this.casillas[x] = decorado;
+	}
+
+	public void quitarDecorador(int x) {
+		aDecoradorCasilla decorado = (aDecoradorCasilla) this.casillas[x];
+		this.casillas[x] = decorado.getCasilla();
+	}
+
+	public void pisada(int x) {
+		if (casillas[x].pisada()) {
+			quitarDecorador(x);
+		}
+	}
 
 
-    /// Tropas
-    public void crearTropa(ITropa tropa ){
-        // Validar que se pueda  crear la tropa, o sea que no exista una tropa igual en espera que pertenezca al
-        // mismo jugador
+	/// Tropas
+	public void crearTropa(ITropa tropa) {
+		// Validar que se pueda  crear la tropa, o sea que no exista una tropa igual en espera que pertenezca al
+		// mismo jugador
 
-        this.tropasEnEspera.add(tropa);
-    }
+		this.tropasEnEspera.add(tropa);
+	}
 
-    private boolean verificarTropa(ITropa tropa){
+	private boolean verificarTropa(ITropa tropa) {
 
-        for(ITropa t : this.tropasEnEspera){
-           // if( t.)
+		for (ITropa t : this.tropasEnEspera) {
+			// if( t.)
 
-        }
-        return true;
-    }
+		}
+		return true;
+	}
 }
