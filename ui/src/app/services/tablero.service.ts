@@ -2,11 +2,15 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { Casilla } from '../models/casilla';
+import {Jugador} from "../models/jugador";
 
 @Injectable({
   providedIn: 'root'
 })
 export class TableroService {
+
+  datos: Jugador;
+  public arrJugadores: Jugador[];
 
   _baseUrl = 'http://localhost:8081/api/tablero';
   private headers = new HttpHeaders({
@@ -28,6 +32,6 @@ export class TableroService {
   }
 
   getJugador(id: string){
-    return this.http.get(this._baseUrl + `/cambioTurno?id=${id}`);
+    return this.http.get<Jugador[]>(this._baseUrl + `/cambioTurno?id=${id}`,{headers: this.headers});
   }
 }

@@ -25,11 +25,14 @@ public class GestorJugador {
 
     public Jugador retornarJugador(String id){
 
+        Jugador jugador1 = new Jugador("1", "jugador1", 'p'); //p: pierde, g: gana
+        Jugador jugador2 = new Jugador("2", "jugador2", 'p');
+
         Jugador retornar = new Jugador();
-        for (Jugador j: jugadores ) {
-             if (j.getId().equals(id)){
-                 retornar =  j;//retorna jugador1
-             }else retornar= j; //retorna jugador2
+        if (id.equals(1)){
+            return  retornar=jugador2;
+        }else if(id.equals(2)&&id.equals(0)){
+            return retornar= jugador1;
         }
         return retornar;
     }
