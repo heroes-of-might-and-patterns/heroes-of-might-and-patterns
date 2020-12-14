@@ -34,8 +34,9 @@ public class GestorTablero {
 
 	public void iniciarTablero() {
 		ArrayList<Integer> casillasEspeciales = new ArrayList<>();
+		int numero;
 		while (casillasEspeciales.size() < 14) {
-			int numero = (int) (Math.random() * 100);
+			numero = (int) (Math.random() * 100);
 
 			if (!casillasEspeciales.contains(numero))
 				casillasEspeciales.add(numero);
@@ -46,9 +47,9 @@ public class GestorTablero {
 				decorarCasilla(i, (int) (Math.random() * 4));
 		}
 
-		poblarCasillasConGemas(casillasEspeciales);
-
 		this.llenarCasillasNormales();
+
+		poblarCasillasConGemas(casillasEspeciales);
 	}
 
 	private void poblarCasillasConGemas(ArrayList<Integer> casillasEspeciales) {
