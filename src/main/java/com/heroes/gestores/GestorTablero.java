@@ -21,7 +21,7 @@ public class GestorTablero {
     public  GestorTablero() {
 
 	}
-
+  
     public static GestorTablero getInstancia() {
         if (instancia == null) {
             instancia = new GestorTablero();

@@ -175,7 +175,6 @@ export class TableroComponent implements OnInit {
         console.log(err);
       }
     });
-
   }
 
   atacar(indiceObjetivo: number): void {

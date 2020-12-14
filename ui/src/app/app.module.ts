@@ -4,7 +4,9 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 
 import { MatGridListModule } from '@angular/material/grid-list';
+
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+
 
 
 import { AppComponent } from './app.component';
@@ -25,7 +27,7 @@ import {pathToFileURL} from "url";
     DadoComponent,
     TableroComponent,
     FooterComponent,
-    TropasJugadorComponent,
+    TropasJugadorComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +41,7 @@ import {pathToFileURL} from "url";
       {path: '', component: TableroComponent}
     ]),
     ReactiveFormsModule
+
   ],
   providers: [
     TableroService

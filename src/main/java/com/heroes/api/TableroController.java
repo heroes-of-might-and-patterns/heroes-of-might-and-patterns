@@ -16,19 +16,15 @@ import java.io.IOException;
 
 @RequestMapping("api")
 @RestController
-@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST, RequestMethod.PUT})
 public class TableroController {
 
     private GestorTablero gestorTablero;
-    private GestorJugador gestorJugador;
-
     private CasillaMapper casillaMapper;
     @Autowired
     public TableroController(){
-        this.gestorTablero = new GestorTablero();
-        this.gestorJugador = new GestorJugador();
+        this.gestorTablero = GestorTablero.getInstancia();
         this.gestorTablero.iniciarTablero();
-        this.gestorJugador.agregarJugadores();
 
         this.casillaMapper = new CasillaMapper();
 

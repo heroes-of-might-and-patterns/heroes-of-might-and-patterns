@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/internal/Observable';
 import { Casilla } from '../models/casilla';
 import {Jugador} from "../models/jugador";
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -16,7 +17,7 @@ export class TableroService {
   private headers = new HttpHeaders({
     'Content-Type': 'application/json',
   });
-
+  
   constructor(private http: HttpClient) { }
 
   getTablero(): Observable<Casilla[]>{
