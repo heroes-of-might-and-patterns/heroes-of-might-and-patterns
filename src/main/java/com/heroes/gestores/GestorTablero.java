@@ -17,13 +17,13 @@ public class GestorTablero {
     private final cCasillaNormal[] casillas = new cCasillaNormal[100];
     private ArrayList<ITropa> tropasEnEspera = new ArrayList<ITropa>();
 
-    public void GestorTablero(){
+    public void GestorTablero() {
 
     }
 
 
-    public static GestorTablero getInstancia(){
-        if(instancia == null){
+    public static GestorTablero getInstancia() {
+        if (instancia == null) {
             instancia = new GestorTablero();
         }
         return instancia;
@@ -33,16 +33,16 @@ public class GestorTablero {
         return casillas;
     }
 
-    public void actualizarTablero(cCasillaNormal[] tableroActualizado){
+    public void actualizarTablero(cCasillaNormal[] tableroActualizado) {
         // Aca se podria implementar el patron observador para notificar a los jugadores
-        for(int i =0; i<this.casillas.length; i++){
+        for (int i = 0; i < this.casillas.length; i++) {
             this.casillas[i] = tableroActualizado[i];
         }
     }
 
-    private void llenarCasillasNormales(){
-        for(int i = 0; i<this.casillas.length; i++){
-            if(casillas[i] == null){
+    private void llenarCasillasNormales() {
+        for (int i = 0; i < this.casillas.length; i++) {
+            if (casillas[i] == null) {
                 casillas[i] = new cCasillaNormal();
             }
         }
@@ -120,9 +120,9 @@ public class GestorTablero {
         return true;
     }*/
 
-    public void atacarTropa(int indiceAtacante, int indiceObjetivo){
+    public void atacarTropa(int indiceAtacante, int indiceObjetivo) {
         this.getCasillas()[indiceAtacante].getTropa().atacarTropa(this.getCasillas()[indiceObjetivo].getTropa());
-        if(this.getCasillas()[indiceObjetivo].getTropa().getEstado() == 'M'){
+        if (this.getCasillas()[indiceObjetivo].getTropa().getEstado() == 'M') {
             this.getCasillas()[indiceObjetivo] = new cCasillaNormal();
         }
     }
