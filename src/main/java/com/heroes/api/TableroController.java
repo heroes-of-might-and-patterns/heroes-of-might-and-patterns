@@ -21,7 +21,7 @@ public class TableroController {
     private CasillaMapper casillaMapper;
     @Autowired
     public TableroController(){
-        this.gestorTablero = new GestorTablero();
+        this.gestorTablero = GestorTablero.getInstancia();
         this.gestorTablero.iniciarTablero();
 
         this.casillaMapper = new CasillaMapper();

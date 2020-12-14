@@ -12,11 +12,21 @@ import java.util.ArrayList;
 
 public class GestorTablero {
 
+    private static GestorTablero instancia = null;
+
     private final cCasillaNormal[] casillas = new cCasillaNormal[100];
     private ArrayList<ITropa> tropasEnEspera = new ArrayList<ITropa>();
 
     public void GestorTablero(){
 
+    }
+
+
+    public static GestorTablero getInstancia(){
+        if(instancia == null){
+            instancia = new GestorTablero();
+        }
+        return instancia;
     }
 
     public cCasillaNormal[] getCasillas() {
