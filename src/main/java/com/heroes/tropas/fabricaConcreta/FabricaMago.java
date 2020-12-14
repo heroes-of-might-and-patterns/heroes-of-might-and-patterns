@@ -7,10 +7,10 @@ import com.heroes.tropas.productoConcreto.Mago;
 public class FabricaMago implements IFabricaTropa {
 
 
-    @Override
-    public ITropa crearTropa() {
-        Mago mago = new Mago();
+	@Override
+	public ITropa crearTropa() {
+		Mago mago = new Mago();
 
-        return mago;
-    }
+		return mago;
+	}
 }

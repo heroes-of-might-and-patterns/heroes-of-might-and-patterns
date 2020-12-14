@@ -6,10 +6,10 @@ import com.heroes.tropas.productoConcreto.Asesino;
 
 public class FabricaAsesino implements IFabricaTropa {
 
-    @Override
-    public ITropa crearTropa() {
-        Asesino asesino = new Asesino();
+	@Override
+	public ITropa crearTropa() {
+		Asesino asesino = new Asesino();
 
-        return asesino;
-    }
+		return asesino;
+	}
 }

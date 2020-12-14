@@ -1,0 +1,16 @@
+.square {
+  position: relative;
+  background-color: #31585D;
+  margin: 2px;
+  border: solid ;
+}
+
+.square:after {
+  content: '';
+  display: block;
+  padding-bottom: 100%;
+}
+
+.containerTablero{
+  max-width: 800px; margin: 0 auto; padding: 10px;
+}

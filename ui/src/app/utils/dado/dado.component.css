@@ -1,0 +1,13 @@
+#lblDado {
+  display: block;
+}
+
+#dado{
+  margin: 0 auto;
+  width: 100px;
+}
+
+.dadoBtn{
+  display: inline-block;
+  float: left;
+}

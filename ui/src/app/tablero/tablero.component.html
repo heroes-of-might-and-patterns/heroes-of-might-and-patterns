@@ -1,0 +1,41 @@
+<div class="containerTablero row">
+  <div class="col-3">
+    <div class="menu-acciones row">
+      <button mat-button class="col-12" (click)="mostrarAlcance('M')">
+        MOVERSE
+      </button>
+      <button mat-button class="col-12" (click)="mostrarAlcance('A')">
+        ATACAR
+      </button>
+      <button mat-button class="col-12">
+        ACTIVAR POWER UP
+      </button>
+    </div>
+  </div>
+  <div class='col-9'>
+    <mat-grid-list cols="10">
+      <div *ngFor="let c of casillasTrop;let i=index">
+        <mat-grid-tile
+          *ngIf="c.tipo !== 2"
+          [ngStyle]="c.tipo !== 0 && !c.tropa? {'background-color': alcanceColor} : {'background-color': bgColor} ">
+          <button mat-button *ngIf="c.tipo === 1" (click)="mover(i, c.tipo)">
+            Mov
+          </button>
+          <!-- <button mat-button *ngIf="c.tipo === 2" (click)="accion(i, c.tipo)"
+            [ngStyle]="{'background-color': atacarColor}">
+            {{c.tropa.nombre}}
+          </button> -->
+          <button mat-button *ngIf="c.tropa && c.tropa.vida > 0" (click)="selectTropa(c.tropa, i)">
+            {{c.tropa.nombre}}
+          </button>
+        </mat-grid-tile>
+        <mat-grid-tile  *ngIf="c.tipo === 2" [ngStyle]="{'background-color': atacarColor}" >
+          <button mat-button (click)="atacar(i)"
+            [ngStyle]="{'background-color': atacarColor}">
+            {{c.tropa.nombre}}
+          </button>
+        </mat-grid-tile>
+      </div>
+    </mat-grid-list>
+  </div>
+</div>
